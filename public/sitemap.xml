@@ -11,29 +11,33 @@
     <loc>http://localhost:1313/tags/swift/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20250109/</loc>
+    <loc>http://localhost:1313/posts/2025/post-20250109/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20250106/</loc>
+    <loc>http://localhost:1313/posts/2025/post-20250106/</loc>
     <lastmod>2025-01-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/music/</loc>
     <lastmod>2025-01-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20250101/</loc>
+    <loc>http://localhost:1313/posts/2025/post-20250101/</loc>
     <lastmod>2025-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20241228/</loc>
+    <loc>http://localhost:1313/posts/2024/post-20241228/</loc>
     <lastmod>2024-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20241223/</loc>
+    <loc>http://localhost:1313/posts/2024/post-20241223/</loc>
     <lastmod>2024-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-20241220/</loc>
+    <loc>http://localhost:1313/posts/2024/post-20241220/</loc>
     <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url>
