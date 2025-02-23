@@ -2,7 +2,7 @@
 title: Blog
 menu:
   main:
-    weight: 1
+    weight: 2
 draft: false
 ---
 
