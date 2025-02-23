@@ -2,32 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About Me on Rory Allen</title>
-    <link>http://localhost:1313/</link>
+    <link>https://example.org/</link>
     <description>Recent content in About Me on Rory Allen</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Contact</title>
-      <link>http://localhost:1313/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/contact/</guid>
-      <description>&lt;p&gt;Is this the Contact page?&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Inversion: In 4 easy steps</title>
-      <link>http://localhost:1313/blog/2025/post-20250101/</link>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/2025/post-20250101/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m nearly certain that learning this technique is a total game-changer for your ability to produce well architected code. I knew I needed it a long time ago, but I just didn&amp;rsquo;t know what it was. I&amp;rsquo;ve been searching for ways to organise my code so that I stop hitting &lt;em&gt;&amp;lsquo;brick walls of complexity&amp;rsquo;&lt;/em&gt;. I always get to a point where I need to abandon a personal project because managing dependancies is becoming too cumbersome, and I know there has to be a better way.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Project 1</title>
-      <link>http://localhost:1313/portfolio/project-1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/project-1/</guid>
-      <description>&lt;h1 id=&#34;here-is-a-project&#34;&gt;Here is a project&lt;/h1&gt;</description>
-    </item>
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
