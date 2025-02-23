@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=51224&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -36,20 +36,24 @@
     
 
     
-      <link rel="canonical" href="http://localhost:1313/blog/">
+      <link rel="canonical" href="http://localhost:51224/blog/">
     
 
-    <meta property="og:url" content="http://localhost:1313/blog/">
+    <meta property="og:url" content="http://localhost:51224/blog/">
   <meta property="og:site_name" content="Rory Allen">
   <meta property="og:title" content="Blog">
+  <meta property="og:description" content="Hello! I’m the _index.md file in blog directory">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Blog">
-  <meta itemprop="datePublished" content="2025-01-01T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-01-01T00:00:00+00:00">
+  <meta itemprop="description" content="Hello! I’m the _index.md file in blog directory">
+  <meta itemprop="datePublished" content="2025-01-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-01-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="8">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Blog">
+  <meta name="twitter:description" content="Hello! I’m the _index.md file in blog directory">
 
 	
   </head><body class="ma0 avenir bg-near-white development">
@@ -72,14 +76,14 @@
         <ul class="pl0 mr3">
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/portfolio/" title="Portfolio page">
-              Portfolio
+            <a class="hover-white no-underline white-90" href="/blog/" title="Blog page">
+              Blog
             </a>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/blog/" title="Blog page">
-              Blog
+            <a class="hover-white no-underline white-90" href="/portfolio/" title="Portfolio page">
+              Portfolio
             </a>
           </li>
           
@@ -110,7 +114,8 @@
     <main class="pb7" role="main">
       
   <article class="pa3 pa4-ns nested-copy-line-height">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"><p>Hello! I&rsquo;m the _index.md file in blog directory</p>
+</section>
     <section class="flex-ns flex-wrap justify-around mt5">
       
         <div class="relative w-100 w-30-l mb4 bg-white">
@@ -118,14 +123,175 @@
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     <span class="f6 db">Blog</span>
     <h1 class="f3 near-black">
-      <a href="/blog/2025/post-20250101/" class="link black dim">
+      <a href="/blog/post-20250109/" class="link black dim">
+        Swift coin flip
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Of course there is a <strong>random()</strong> class method on <strong>Bool</strong>&hellip; Duh!?</p>
+<pre tabindex="0"><code>print(Bool.random() ? &#34;heads&#34; : &#34;tails&#34;)
+</code></pre>
+    </div>
+    <a href="/blog/post-20250109/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/post-20250106/" class="link black dim">
+        High-Level vs. Low-Level Modules
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <pre tabindex="0"><code>// High-Level Module
+class MusicPlayer {
+    private let songFetcher: SongFetcher
+    
+    init(songFetcher: SongFetcher) {
+        self.songFetcher = songFetcher
+    }
+    
+    func play() {
+        let song = songFetcher.fetchNextSong()
+        print(&#34;Now playing: \(song)&#34;)
+    }
+}
+
+// Low-Level Modules
+protocol SongFetcher {
+    func fetchNextSong() -&gt; String
+}
+
+class PlaylistSongFetcher: SongFetcher {
+    func fetchNextSong() -&gt; String {
+        return &#34;Song from the playlist&#34;
+    }
+}
+
+class NetworkSongFetcher: SongFetcher {
+    func fetchNextSong() -&gt; String {
+        return &#34;Song from the cloud&#34;
+    }
+}
+</code></pre>
+    </div>
+    <a href="/blog/post-20250106/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/post-20250101/" class="link black dim">
         Inversion: In 4 easy steps
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       <p>I&rsquo;m nearly certain that learning this technique is a total game-changer for your ability to produce well architected code. I knew I needed it a long time ago, but I just didn&rsquo;t know what it was. I&rsquo;ve been searching for ways to organise my code so that I stop hitting <em>&lsquo;brick walls of complexity&rsquo;</em>. I always get to a point where I need to abandon a personal project because managing dependancies is becoming too cumbersome, and I know there has to be a better way.</p>
     </div>
-    <a href="/blog/2025/post-20250101/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+    <a href="/blog/post-20250101/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/post-20241228/" class="link black dim">
+        Why didn&#39;t I think of that?
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I&rsquo;m sure I would have started with something like&hellip;</p>
+<pre tabindex="0"><code>codecurrentIndex += 1
+
+if(currentIndex == myList.count) {
+    currentIndex = 0
+ }
+</code></pre><p>&hellip;then perhaps later I would try to make it a one-liner but sadly introduce complexity&hellip;</p>
+<pre tabindex="0"><code>currentIndex = currentIndex &lt; myList.count - 1 ? currentIndex + 1 : 0
+</code></pre><p>But, I&rsquo;m not sure why I have never come across this before:</p>
+<pre tabindex="0"><code>currentIndex = (currentIndex + 1) % myList.count
+</code></pre><p>When I first saw it I knew immediately what it did, yet I&rsquo;ve never even thought of using the modulus when incrementing an index value. wild</p>
+    </div>
+    <a href="/blog/post-20241228/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/post-20241223/" class="link black dim">
+        A Closure Encounter
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I recently got this in a conversation I had with chatGPT. I hazard to guess who it should really be attributed to. If you wrote this originally (or summink v similar) please reach out.</p>
+<pre tabindex="0"><code>import XCTest
+
+class APITests: XCTestCase {
+
+    func testFetchData() {
+        // Create the expectation
+        let expectation = self.expectation(description: &#34;Fetching data from API&#34;)
+        
+        // Simulate an asynchronous API call
+        fetchDataFromAPI { success in
+            XCTAssertTrue(success, &#34;API call should succeed&#34;)
+            expectation.fulfill() // Fulfill the expectation when done
+        }
+        
+        // Wait for the expectation with a timeout
+        wait(for: [expectation], timeout: 5.0)
+    }
+    
+    // Mock API function
+    private func fetchDataFromAPI(completion: @escaping (Bool) -&gt; Void) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            completion(true) // Simulating a successful API call
+        }
+    }
+}
+</code></pre><p>The original prompt was searching for a bit of clarity on how to implement expectations in testing Swift code. What it gave me was a bit of clarity on a few topics that had given me head-scratching moments in the past, namely: expectations, mocks, and escaping closures&hellip;</p>
+    </div>
+    <a href="/blog/post-20241223/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Blog</span>
+    <h1 class="f3 near-black">
+      <a href="/blog/post-20241220/" class="link black dim">
+        A tale as old as me
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>This is the first post, so i will begin by putting down a few things about myself.</p>
+<p>At the time of typing this, I am 43 years old. I feel old as dirt&hellip;</p>
+<p>I love Dungeons &amp; Dragons (TTRPG).</p>
+<p>I&rsquo;ve played since I was little. I usually DM now. My players are cool because they know the rules better than I do. D&amp;D has gone through so many rule sets over the years that I&rsquo;ve really just gotten bored of learning the rules. I know that annoys people sometimes because, as the DM, I need to make rulings during play. But I prefer to just be the guy who knows where the story is (mostly) going and the guy who controls the monsters. I refer to my players for what the rules are.</p>
+    </div>
+    <a href="/blog/post-20241220/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
 </div>
 
@@ -136,7 +302,7 @@
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
   <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:51224/" >
     &copy;  Rory Allen 2025 
   </a>
     <div><div class="ananke-socials"></div>

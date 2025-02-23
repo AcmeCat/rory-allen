@@ -1,6 +1,9 @@
 ---
 title: Portfolio
-menus: main
-weight: 2
+menu:
+  main:
+    weight: 2
 draft: false
 ---
+
+Hey there! Im the portfolio page lel
