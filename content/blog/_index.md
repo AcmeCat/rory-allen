@@ -2,6 +2,5 @@
 title: Blog
 menus: main
 weight: 3
+draft: false
 ---
-
-Is this the Blog page?

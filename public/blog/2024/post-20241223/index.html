@@ -57,17 +57,17 @@ The original prompt was searching for a bit of clarity on how to implement expec
     
 
     
-      <link rel="canonical" href="http://localhost:1313/posts/2024/post-20241223/">
+      <link rel="canonical" href="http://localhost:1313/blog/2024/post-20241223/">
     
 
-    <meta property="og:url" content="http://localhost:1313/posts/2024/post-20241223/">
+    <meta property="og:url" content="http://localhost:1313/blog/2024/post-20241223/">
   <meta property="og:site_name" content="Rory Allen">
   <meta property="og:title" content="A Closure Encounter">
   <meta property="og:description" content="I recently got this in a conversation I had with chatGPT. I hazard to guess who it should really be attributed to. If you wrote this originally (or summink v similar) please reach out.
 import XCTest class APITests: XCTestCase { func testFetchData() { // Create the expectation let expectation = self.expectation(description: &#34;Fetching data from API&#34;) // Simulate an asynchronous API call fetchDataFromAPI { success in XCTAssertTrue(success, &#34;API call should succeed&#34;) expectation.fulfill() // Fulfill the expectation when done } // Wait for the expectation with a timeout wait(for: [expectation], timeout: 5.0) } // Mock API function private func fetchDataFromAPI(completion: @escaping (Bool) -&gt; Void) { DispatchQueue.global().asyncAfter(deadline: .now() &#43; 2) { completion(true) // Simulating a successful API call } } } The original prompt was searching for a bit of clarity on how to implement expectations in testing Swift code. What it gave me was a bit of clarity on a few topics that had given me head-scratching moments in the past, namely: expectations, mocks, and escaping closures…">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
+    <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2024-12-23T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-12-23T00:00:00+00:00">
 
@@ -149,7 +149,7 @@ import XCTest class APITests: XCTestCase { func testFetchData() { // Create the 
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked ttu">
           
-        All Posts
+        Blog
       </aside><div id="sharing" class="mt3 ananke-socials"></div>
 <h1 class="f1 athelas mt3 mb1">A Closure Encounter</h1>
       

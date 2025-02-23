@@ -6,21 +6,6 @@
     <description>Recent content in Swift on Rory Allen</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/swift/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Swift coin flip</title>
-      <link>http://localhost:1313/posts/2025/post-20250109/</link>
-      <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2025/post-20250109/</guid>
-      <description>&lt;p&gt;Of course there is a &lt;strong&gt;random()&lt;/strong&gt; class method on &lt;strong&gt;Bool&lt;/strong&gt;&amp;hellip; Duh!?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;print(Bool.random() ? &amp;#34;heads&amp;#34; : &amp;#34;tails&amp;#34;)&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    <item>
-      <title>High-Level vs. Low-Level Modules</title>
-      <link>http://localhost:1313/posts/2025/post-20250106/</link>
-      <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2025/post-20250106/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// High-Level Module&#xA;class MusicPlayer {&#xA;    private let songFetcher: SongFetcher&#xA;    &#xA;    init(songFetcher: SongFetcher) {&#xA;        self.songFetcher = songFetcher&#xA;    }&#xA;    &#xA;    func play() {&#xA;        let song = songFetcher.fetchNextSong()&#xA;        print(&amp;#34;Now playing: \(song)&amp;#34;)&#xA;    }&#xA;}&#xA;&#xA;// Low-Level Modules&#xA;protocol SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String&#xA;}&#xA;&#xA;class PlaylistSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the playlist&amp;#34;&#xA;    }&#xA;}&#xA;&#xA;class NetworkSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the cloud&amp;#34;&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
   </channel>
 </rss>
