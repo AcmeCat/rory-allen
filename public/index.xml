@@ -9,6 +9,34 @@
     <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;Is this the About page?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Portfolio</title>
+      <link>http://localhost:1313/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/</guid>
+      <description>&lt;p&gt;Is this the Portfolio page?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>http://localhost:1313/blog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/</guid>
+      <description>&lt;p&gt;Is this the Blog page?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>&lt;p&gt;Is this the Contact page?&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Swift coin flip</title>
       <link>http://localhost:1313/posts/2025/post-20250109/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
@@ -49,20 +77,6 @@
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/2024/post-20241220/</guid>
       <description>&lt;p&gt;This is the first post, so i will begin by putting down a few things about myself.&lt;/p&gt;&#xA;&lt;p&gt;At the time of typing this, I am 43 years old. I feel old as dirt&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;I love Dungeons &amp;amp; Dragons (TTRPG).&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve played since I was little. I usually DM now. My players are cool because they know the rules better than I do. D&amp;amp;D has gone through so many rule sets over the years that I&amp;rsquo;ve really just gotten bored of learning the rules. I know that annoys people sometimes because, as the DM, I need to make rulings during play. But I prefer to just be the guy who knows where the story is (mostly) going and the guy who controls the monsters. I refer to my players for what the rules are.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;Is this the About page?&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>http://localhost:1313/blog/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/</guid>
-      <description>&lt;p&gt;Is this the Blog page?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
