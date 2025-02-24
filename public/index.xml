@@ -2,67 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About Me on Rory Allen</title>
-    <link>http://localhost:57448/rory-allen/</link>
+    <link>http://localhost:57765/rory-allen/</link>
     <description>Recent content in About Me on Rory Allen</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:57448/rory-allen/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:57765/rory-allen/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swift coin flip</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20250109/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20250109/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20250109/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20250109/</guid>
       <description>&lt;p&gt;Of course there is a &lt;strong&gt;random()&lt;/strong&gt; class method on &lt;strong&gt;Bool&lt;/strong&gt;&amp;hellip; Duh!?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;print(Bool.random() ? &amp;#34;heads&amp;#34; : &amp;#34;tails&amp;#34;)&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>High-Level vs. Low-Level Modules</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20250106/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20250106/</link>
       <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20250106/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20250106/</guid>
       <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// High-Level Module&#xA;class MusicPlayer {&#xA;    private let songFetcher: SongFetcher&#xA;    &#xA;    init(songFetcher: SongFetcher) {&#xA;        self.songFetcher = songFetcher&#xA;    }&#xA;    &#xA;    func play() {&#xA;        let song = songFetcher.fetchNextSong()&#xA;        print(&amp;#34;Now playing: \(song)&amp;#34;)&#xA;    }&#xA;}&#xA;&#xA;// Low-Level Modules&#xA;protocol SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String&#xA;}&#xA;&#xA;class PlaylistSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the playlist&amp;#34;&#xA;    }&#xA;}&#xA;&#xA;class NetworkSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the cloud&amp;#34;&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Inversion: In 4 easy steps</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20250101/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20250101/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20250101/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20250101/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m nearly certain that learning this technique is a total game-changer for your ability to produce well architected code. I knew I needed it a long time ago, but I just didn&amp;rsquo;t know what it was. I&amp;rsquo;ve been searching for ways to organise my code so that I stop hitting &lt;em&gt;&amp;lsquo;brick walls of complexity&amp;rsquo;&lt;/em&gt;. I always get to a point where I need to abandon a personal project because managing dependancies is becoming too cumbersome, and I know there has to be a better way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why didn&#39;t I think of that?</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20241228/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20241228/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20241228/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20241228/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m sure I would have started with something like&amp;hellip;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;codecurrentIndex += 1&#xA;&#xA;if(currentIndex == myList.count) {&#xA;    currentIndex = 0&#xA; }&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;hellip;then perhaps later I would try to make it a one-liner but sadly introduce complexity&amp;hellip;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;currentIndex = currentIndex &amp;lt; myList.count - 1 ? currentIndex + 1 : 0&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But, I&amp;rsquo;m not sure why I have never come across this before:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;currentIndex = (currentIndex + 1) % myList.count&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When I first saw it I knew immediately what it did, yet I&amp;rsquo;ve never even thought of using the modulus when incrementing an index value. wild&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Closure Encounter</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20241223/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20241223/</link>
       <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20241223/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20241223/</guid>
       <description>&lt;p&gt;I recently got this in a conversation I had with chatGPT. I hazard to guess who it should really be attributed to. If you wrote this originally (or summink v similar) please reach out.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import XCTest&#xA;&#xA;class APITests: XCTestCase {&#xA;&#xA;    func testFetchData() {&#xA;        // Create the expectation&#xA;        let expectation = self.expectation(description: &amp;#34;Fetching data from API&amp;#34;)&#xA;        &#xA;        // Simulate an asynchronous API call&#xA;        fetchDataFromAPI { success in&#xA;            XCTAssertTrue(success, &amp;#34;API call should succeed&amp;#34;)&#xA;            expectation.fulfill() // Fulfill the expectation when done&#xA;        }&#xA;        &#xA;        // Wait for the expectation with a timeout&#xA;        wait(for: [expectation], timeout: 5.0)&#xA;    }&#xA;    &#xA;    // Mock API function&#xA;    private func fetchDataFromAPI(completion: @escaping (Bool) -&amp;gt; Void) {&#xA;        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {&#xA;            completion(true) // Simulating a successful API call&#xA;        }&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The original prompt was searching for a bit of clarity on how to implement expectations in testing Swift code. What it gave me was a bit of clarity on a few topics that had given me head-scratching moments in the past, namely: expectations, mocks, and escaping closures&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>A tale as old as me</title>
-      <link>http://localhost:57448/rory-allen/blog/post-20241220/</link>
+      <link>http://localhost:57765/rory-allen/blog/post-20241220/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/blog/post-20241220/</guid>
+      <guid>http://localhost:57765/rory-allen/blog/post-20241220/</guid>
       <description>&lt;p&gt;This is the first post, so i will begin by putting down a few things about myself.&lt;/p&gt;&#xA;&lt;p&gt;At the time of typing this, I am 43 years old. I feel old as dirt&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;I love Dungeons &amp;amp; Dragons (TTRPG).&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve played since I was little. I usually DM now. My players are cool because they know the rules better than I do. D&amp;amp;D has gone through so many rule sets over the years that I&amp;rsquo;ve really just gotten bored of learning the rules. I know that annoys people sometimes because, as the DM, I need to make rulings during play. But I prefer to just be the guy who knows where the story is (mostly) going and the guy who controls the monsters. I refer to my players for what the rules are.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Contact</title>
-      <link>http://localhost:57448/rory-allen/contact/</link>
+      <title>Antsteroids!</title>
+      <link>http://localhost:57765/rory-allen/portfolio/antsteroids/antsteroids/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/contact/</guid>
-      <description>&lt;p&gt;Is this the Contact form?&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&lt;form class=&#34;black-80 sans-serif&#34; accept-charset=&#34;UTF-8&#34; action=&#34;https://formspree.io/f/xqaeokey&#34; method=&#34;POST&#34; role=&#34;form&#34;&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34;  for=&#34;name&#34;&gt;Your Name&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;name&#34;/&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;email&#34;/&gt;&#xA;    &lt;div class=&#34;requirements f6 gray glow i ph3 overflow-hidden&#34;&gt;&#xA;      An email address is required.&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;message&#34;&gt;Message&lt;/label&gt;&#xA;    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn h4&#34; aria-labelledby=&#34;message&#34;&gt;&lt;/textarea&gt;&#xA;&#xA;    &lt;input class=&#34;db w-100 mv2 white pa3 bn hover-shadow hover-bg-black bg-animate bg-black&#34; type=&#34;submit&#34; value=&#34;Send&#34; /&gt;&#xA;&#xA;&lt;/form&gt;</description>
+      <guid>http://localhost:57765/rory-allen/portfolio/antsteroids/antsteroids/</guid>
+      <description>&lt;h2 id=&#34;a-game-of-arthropogeddon&#34;&gt;A game of Arthropogeddon&lt;/h2&gt;&#xA;&lt;h3 id=&#34;action-packed-space-shooter-destroy-ants-collect-loots-and-upgrade-your-ship&#34;&gt;Action-packed space shooter. Destroy ants, collect loots, and upgrade your ship&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:57765/rory-allen/static/img/AntsteroidsCap1.png&#34; alt=&#34;ants in space&#34;&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;features&#34;&gt;Features&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;6 different vessels to unlock&lt;/li&gt;&#xA;&lt;li&gt;12 unique artefacts to boost gameplay&lt;/li&gt;&#xA;&lt;li&gt;4 mission types&lt;/li&gt;&#xA;&lt;li&gt;4 unique enmy types&lt;/li&gt;&#xA;&lt;li&gt;4 bosses&lt;/li&gt;&#xA;&lt;li&gt;endless starfields to explore&lt;/li&gt;&#xA;&lt;li&gt;original music and sound effects by BonanaBref&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;tech&#34;&gt;Tech&lt;/h4&gt;&#xA;&lt;p&gt;&lt;em&gt;Foundation&lt;/em&gt;, &lt;em&gt;SpriteKit&lt;/em&gt;, &lt;em&gt;AVKit&lt;/em&gt;, &lt;em&gt;StoreKit&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;check-it-out&#34;&gt;Check it out&lt;/h4&gt;&#xA;&lt;p&gt;Available &lt;a href=&#34;https://apps.apple.com/app/id1470018188&#34;&gt;here&lt;/a&gt; in the iOS App Store.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Project 1</title>
-      <link>http://localhost:57448/rory-allen/portfolio/project-1/</link>
+      <title>Contact</title>
+      <link>http://localhost:57765/rory-allen/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57448/rory-allen/portfolio/project-1/</guid>
-      <description>&lt;h1 id=&#34;here-is-a-project&#34;&gt;Here is a project&lt;/h1&gt;</description>
+      <guid>http://localhost:57765/rory-allen/contact/</guid>
+      <description>&lt;p&gt;Is this the Contact form?&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;&lt;form class=&#34;black-80 sans-serif&#34; accept-charset=&#34;UTF-8&#34; action=&#34;https://formspree.io/f/xqaeokey&#34; method=&#34;POST&#34; role=&#34;form&#34;&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34;  for=&#34;name&#34;&gt;Your Name&lt;/label&gt;&#xA;    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;name&#34;/&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;email&#34;&gt;Email Address&lt;/label&gt;&#xA;    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn&#34;  required placeholder=&#34; &#34;  aria-labelledby=&#34;email&#34;/&gt;&#xA;    &lt;div class=&#34;requirements f6 gray glow i ph3 overflow-hidden&#34;&gt;&#xA;      An email address is required.&#xA;    &lt;/div&gt;&#xA;&#xA;    &lt;label class=&#34;f6 b db mb1 mt3 sans-serif mid-gray&#34; for=&#34;message&#34;&gt;Message&lt;/label&gt;&#xA;    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; class=&#34;w-100 f5 pv3 ph3 bg-light-gray bn h4&#34; aria-labelledby=&#34;message&#34;&gt;&lt;/textarea&gt;&#xA;&#xA;    &lt;input class=&#34;db w-100 mv2 white pa3 bn hover-shadow hover-bg-black bg-animate bg-black&#34; type=&#34;submit&#34; value=&#34;Send&#34; /&gt;&#xA;&#xA;&lt;/form&gt;</description>
     </item>
   </channel>
 </rss>

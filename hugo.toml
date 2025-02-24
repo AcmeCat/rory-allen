@@ -34,39 +34,3 @@ recent_posts_number = 3
 body_classes = ""
 post_content_classes = ""
 custom_css = ["css/custom.css"]
-
-[params.ananke.social.share]
-networks = [
-  "email",
-  "facebook",
-  "bluesky",
-  "linkedin"
-]
-
-[params.ananke.social.follow]
-networks = [
-  "facebook",
-  "bluesky",
-  "linkedin",
-  "wikipedia"
-]
-
-[params.ananke.social.facebook]
-username = "patrick.kollitsch"
-# profilelink = "https://www.facebook.com/patrick.kollitsch"
-
-[params.ananke.social.linkedin]
-username = "patrickkollitsch"
-
-[params.ananke.social.bluesky]
-username = "kollitsch.dev"
-
-[params.ananke.social.wikipedia]
-username = "Hugo_(software)"
-
-[params.ananke.social.networks.wikipedia]
-slug = "wikipedia"
-label = "Wikipedia"
-color = "#0645ad"
-profile = "https://en.wikipedia.org/wiki/%s"
-icon = "wikipedia-w"
