@@ -5,5 +5,4 @@ menu:
     weight: 1
 draft: false
 ---
-
-Hey there! Im the portfolio page lel
+### Here's some cool things I've built

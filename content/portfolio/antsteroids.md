@@ -1,13 +1,12 @@
 ---
 title: Antsteroids!
-description: A game of Arthropogeddon
 draft: false
 ---
 
 ## A game of Arthropogeddon
 ### Action-packed space shooter. Destroy ants, collect loots, and upgrade your ship
 
-![ants in space](/static/img/AntsteroidsCap1.png)
+![ants in space](/rory-allen/img/AntsteroidsCap1.png)
 
 #### Features
 - 6 different vessels to unlock
