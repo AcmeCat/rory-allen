@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Rory Allen</title>
-    <link>http://localhost:57380/rory-allen/blog/</link>
+    <link>http://localhost:57448/rory-allen/blog/</link>
     <description>Recent content in Blog on Rory Allen</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:57380/rory-allen/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:57448/rory-allen/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Swift coin flip</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20250109/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20250109/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20250109/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20250109/</guid>
       <description>&lt;p&gt;Of course there is a &lt;strong&gt;random()&lt;/strong&gt; class method on &lt;strong&gt;Bool&lt;/strong&gt;&amp;hellip; Duh!?&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;print(Bool.random() ? &amp;#34;heads&amp;#34; : &amp;#34;tails&amp;#34;)&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>High-Level vs. Low-Level Modules</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20250106/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20250106/</link>
       <pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20250106/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20250106/</guid>
       <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// High-Level Module&#xA;class MusicPlayer {&#xA;    private let songFetcher: SongFetcher&#xA;    &#xA;    init(songFetcher: SongFetcher) {&#xA;        self.songFetcher = songFetcher&#xA;    }&#xA;    &#xA;    func play() {&#xA;        let song = songFetcher.fetchNextSong()&#xA;        print(&amp;#34;Now playing: \(song)&amp;#34;)&#xA;    }&#xA;}&#xA;&#xA;// Low-Level Modules&#xA;protocol SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String&#xA;}&#xA;&#xA;class PlaylistSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the playlist&amp;#34;&#xA;    }&#xA;}&#xA;&#xA;class NetworkSongFetcher: SongFetcher {&#xA;    func fetchNextSong() -&amp;gt; String {&#xA;        return &amp;#34;Song from the cloud&amp;#34;&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Inversion: In 4 easy steps</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20250101/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20250101/</link>
       <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20250101/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20250101/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m nearly certain that learning this technique is a total game-changer for your ability to produce well architected code. I knew I needed it a long time ago, but I just didn&amp;rsquo;t know what it was. I&amp;rsquo;ve been searching for ways to organise my code so that I stop hitting &lt;em&gt;&amp;lsquo;brick walls of complexity&amp;rsquo;&lt;/em&gt;. I always get to a point where I need to abandon a personal project because managing dependancies is becoming too cumbersome, and I know there has to be a better way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why didn&#39;t I think of that?</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20241228/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20241228/</link>
       <pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20241228/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20241228/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m sure I would have started with something like&amp;hellip;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;codecurrentIndex += 1&#xA;&#xA;if(currentIndex == myList.count) {&#xA;    currentIndex = 0&#xA; }&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&amp;hellip;then perhaps later I would try to make it a one-liner but sadly introduce complexity&amp;hellip;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;currentIndex = currentIndex &amp;lt; myList.count - 1 ? currentIndex + 1 : 0&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But, I&amp;rsquo;m not sure why I have never come across this before:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;currentIndex = (currentIndex + 1) % myList.count&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;When I first saw it I knew immediately what it did, yet I&amp;rsquo;ve never even thought of using the modulus when incrementing an index value. wild&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Closure Encounter</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20241223/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20241223/</link>
       <pubDate>Mon, 23 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20241223/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20241223/</guid>
       <description>&lt;p&gt;I recently got this in a conversation I had with chatGPT. I hazard to guess who it should really be attributed to. If you wrote this originally (or summink v similar) please reach out.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;import XCTest&#xA;&#xA;class APITests: XCTestCase {&#xA;&#xA;    func testFetchData() {&#xA;        // Create the expectation&#xA;        let expectation = self.expectation(description: &amp;#34;Fetching data from API&amp;#34;)&#xA;        &#xA;        // Simulate an asynchronous API call&#xA;        fetchDataFromAPI { success in&#xA;            XCTAssertTrue(success, &amp;#34;API call should succeed&amp;#34;)&#xA;            expectation.fulfill() // Fulfill the expectation when done&#xA;        }&#xA;        &#xA;        // Wait for the expectation with a timeout&#xA;        wait(for: [expectation], timeout: 5.0)&#xA;    }&#xA;    &#xA;    // Mock API function&#xA;    private func fetchDataFromAPI(completion: @escaping (Bool) -&amp;gt; Void) {&#xA;        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {&#xA;            completion(true) // Simulating a successful API call&#xA;        }&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The original prompt was searching for a bit of clarity on how to implement expectations in testing Swift code. What it gave me was a bit of clarity on a few topics that had given me head-scratching moments in the past, namely: expectations, mocks, and escaping closures&amp;hellip;&lt;/p&gt;</description>
     </item>
     <item>
       <title>A tale as old as me</title>
-      <link>http://localhost:57380/rory-allen/blog/post-20241220/</link>
+      <link>http://localhost:57448/rory-allen/blog/post-20241220/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:57380/rory-allen/blog/post-20241220/</guid>
+      <guid>http://localhost:57448/rory-allen/blog/post-20241220/</guid>
       <description>&lt;p&gt;This is the first post, so i will begin by putting down a few things about myself.&lt;/p&gt;&#xA;&lt;p&gt;At the time of typing this, I am 43 years old. I feel old as dirt&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;I love Dungeons &amp;amp; Dragons (TTRPG).&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve played since I was little. I usually DM now. My players are cool because they know the rules better than I do. D&amp;amp;D has gone through so many rule sets over the years that I&amp;rsquo;ve really just gotten bored of learning the rules. I know that annoys people sometimes because, as the DM, I need to make rulings during play. But I prefer to just be the guy who knows where the story is (mostly) going and the guy who controls the monsters. I refer to my players for what the rules are.&lt;/p&gt;</description>
     </item>
   </channel>
