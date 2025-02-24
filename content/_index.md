@@ -13,7 +13,7 @@ draft: false
 
 ##### I also have extensive experience in web development and cloud deployment
 
-You can find examples of my work here.
+You can find examples of my work [here](/rory-allen/portfolio).
 
 You can find my ramblings about code, music, and DnD here.
 
