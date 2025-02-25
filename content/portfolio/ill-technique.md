@@ -19,4 +19,4 @@ draft: false
 *Foundation*, *UIKit*, *AVKit*, *StoreKit*
 
 #### Check it out
-Available [here](https://apps.apple.com/app/id1470018188) in the iOS App Store.
+Available [here](https://example.com) in the iOS App Store.
