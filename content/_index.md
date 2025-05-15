@@ -15,6 +15,6 @@ draft: false
 
 You can find examples of my work [here](/rory-allen/portfolio).
 
-You can find my ramblings about code, music, and DnD here.
+You can find my ramblings about code, music, and DnD [here](/rory-allen/blog).
 
-You can contact me here.
+You can contact me [here](/rory-allen/contact).
