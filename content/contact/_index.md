@@ -6,6 +6,6 @@ menu:
 draft: false
 ---
 
-Is this the Contact form?
+### Drop me a message...
 
 {{< form-contact action="https://formspree.io/f/xqaeokey"  >}}
