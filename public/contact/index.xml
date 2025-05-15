@@ -8,11 +8,10 @@
     <language>en-us</language>
     <atom:link href="http://localhost:51224/contact/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Contact</title>
       <link>http://localhost:51224/contact/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:51224/contact/contact/</guid>
-      <description>&lt;p&gt;Is this the Contact form?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Feel free to drop me a message...&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

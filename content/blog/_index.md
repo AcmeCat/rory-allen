@@ -5,5 +5,4 @@ menu:
     weight: 2
 draft: false
 ---
-
-Hello! I'm the _index.md file in blog directory
+### Some things I've thought about
