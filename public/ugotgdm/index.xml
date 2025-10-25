@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ugotgdms on Rory Allen</title>
+    <link>http://localhost:60190/rory-allen/ugotgdm/</link>
+    <description>Recent content in Ugotgdms on Rory Allen</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:60190/rory-allen/ugotgdm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UGotGDM - User Guide</title>
+      <link>http://localhost:60190/rory-allen/ugotgdm/instructions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:60190/rory-allen/ugotgdm/instructions/</guid>
+      <description>&lt;h1 id=&#34;ugotgdm-user-guide&#34;&gt;UGotGDM User Guide&lt;/h1&gt;&#xA;&lt;h2 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h2&gt;&#xA;&lt;h3 id=&#34;first-launch&#34;&gt;First Launch&lt;/h3&gt;&#xA;&lt;p&gt;When you first open UGotGDM, you&amp;rsquo;ll be guided through a quick setup process to create your first campaign or join an existing one.&lt;/p&gt;&#xA;&lt;h3 id=&#34;creating-a-campaign&#34;&gt;Creating a Campaign&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Tap the &lt;strong&gt;+&lt;/strong&gt; button on the Campaigns screen&lt;/li&gt;&#xA;&lt;li&gt;Enter your campaign name and description&lt;/li&gt;&#xA;&lt;li&gt;Choose your game system (D&amp;amp;D 5e, Pathfinder, etc.)&lt;/li&gt;&#xA;&lt;li&gt;Invite players or start solo&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;joining-a-campaign&#34;&gt;Joining a Campaign&lt;/h3&gt;&#xA;&lt;p&gt;If your DM has invited you to a campaign:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
