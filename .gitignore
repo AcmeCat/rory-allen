@@ -1,0 +1,11 @@
+# Hugo archive
+hugo-archive/
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+
+# Hugo build lock (legacy)
+.hugo_build.lock

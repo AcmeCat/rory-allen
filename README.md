@@ -1,97 +1,57 @@
-# Rory Allen - Portfolio Website
+# Rory Allen - Portfolio Site
 
-Personal portfolio and blog for Rory Allen, an independent software engineer specializing in Apple platforms, web development, and cloud deployment.
+Terminal-style portfolio website for Rory Allen, an independent software engineer.
 
 **Live Site**: [https://acmecat.github.io/rory-allen/](https://acmecat.github.io/rory-allen/)
 
-## About
+## Tech Stack
 
-This is a static site built with [Hugo](https://gohugo.io/) using the [Ananke theme](https://github.com/theNewDynamic/gohugo-theme-ananke) and deployed to GitHub Pages.
+Pure HTML5/CSS3 - No frameworks, no build process.
 
-The site features:
-- Portfolio showcasing iOS apps and development projects
-- Blog posts about Swift development, music, and D&D
-- Contact information
+Terminal aesthetic:
+- Bright green monospace on black background
+- Cyan links, magenta hovers, yellow accents
+- ASCII art header
+- Command-line themed interface
 
 ## Local Development
 
-### Prerequisites
-- Hugo Extended v0.144.2 or later ([installation guide](https://gohugo.io/installation/))
-- Git (for cloning and submodule management)
+Serve the site locally:
 
-### Setup
-
-1. Clone the repository with submodules:
 ```bash
-git clone --recurse-submodules https://github.com/acmecat/rory-allen.git
-cd rory-allen
+python3 -m http.server 8000
 ```
 
-If you already cloned without submodules:
-```bash
-git submodule update --init --recursive
-```
-
-2. Start the development server:
-```bash
-hugo server -D
-```
-
-The site will be available at `http://localhost:1313/rory-allen/`
-
-### Building
-
-To build the site for production:
-```bash
-hugo --gc --minify
-```
-
-Output will be in the `public/` directory.
-
-## Content Management
-
-### Adding Blog Posts
-
-Create a new markdown file in `content/blog/`:
-```bash
-content/blog/post-YYYYMMDD.md
-```
-
-Example frontmatter:
-```yaml
----
-title: "Your Post Title"
-date: 2025-01-06
-tags: ['Swift','Music']
-draft: false
----
-```
-
-### Adding Portfolio Items
-
-Create a new markdown file in `content/portfolio/`:
-```bash
-content/portfolio/project-name.md
-```
-
-Include project details, features, tech stack, and images from `static/img/`.
+Then visit: `http://localhost:8000/index.html`
 
 ## Deployment
 
-The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions (see `.github/workflows/build.yaml`).
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions.
 
-## Theme
+The workflow simply uploads the root directory (excluding `hugo-archive/`) to GitHub Pages.
 
-This site uses the Ananke theme as a git submodule. Custom styling is in `static/css/custom.css`.
+## Structure
 
-To update the theme:
-```bash
-cd themes/ananke
-git pull origin main
-cd ../..
-git add themes/ananke
-git commit -m "update theme"
 ```
+.
+├── index.html          # About page
+├── portfolio.html      # Portfolio listing
+├── blog.html          # Blog listing
+├── contact.html       # Contact info
+├── css/
+│   └── style.css      # Terminal-style CSS
+├── portfolio/         # Individual project pages
+│   ├── ugotgdm.html
+│   ├── antsteroids.html
+│   ├── ill-technique.html
+│   ├── busta-blox.html
+│   └── bujt.html
+└── hugo-archive/      # Previous Hugo site (archived)
+```
+
+## Hugo Archive
+
+The previous Hugo-based site has been archived in `hugo-archive/` for reference. Content from the Hugo site can be found in `hugo-archive/content/`.
 
 ## License
 
