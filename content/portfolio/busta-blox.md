@@ -16,3 +16,7 @@ I wanted to make a game that was kinda like when yr a kid and you hit a tennis b
 
 #### Check it out
 Available [here](https://example.com) in the iOS App Store.
+
+---
+
+[Learn more about Busta Blox](/rory-allen/busta-blox/product/) | [Instructions](/rory-allen/busta-blox/instructions/) | [Privacy Policy](/rory-allen/busta-blox/privacy/) | [Support](/rory-allen/busta-blox/support/)

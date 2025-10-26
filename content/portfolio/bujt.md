@@ -18,3 +18,7 @@ draft: false
 
 #### Check it out
 Available [here](https://example.com) in the iOS App Store.
+
+---
+
+[Learn more about Bujt](/rory-allen/bujt/product/) | [Instructions](/rory-allen/bujt/instructions/) | [Privacy Policy](/rory-allen/bujt/privacy/) | [Support](/rory-allen/bujt/support/)

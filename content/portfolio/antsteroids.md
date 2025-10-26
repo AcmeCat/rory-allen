@@ -22,3 +22,7 @@ draft: false
 
 #### Check it out
 Available [here](https://apps.apple.com/app/id1470018188) in the iOS App Store.
+
+---
+
+[Learn more about Antsteroids](/rory-allen/antsteroids/product/) | [Instructions](/rory-allen/antsteroids/instructions/) | [Privacy Policy](/rory-allen/antsteroids/privacy/) | [Support](/rory-allen/antsteroids/support/)

@@ -20,3 +20,7 @@ draft: false
 
 #### Check it out
 Available [here](https://example.com) in the iOS App Store.
+
+---
+
+[Learn more about Ill Technique](/rory-allen/ill-technique/product/) | [Instructions](/rory-allen/ill-technique/instructions/) | [Privacy Policy](/rory-allen/ill-technique/privacy/) | [Support](/rory-allen/ill-technique/support/)
