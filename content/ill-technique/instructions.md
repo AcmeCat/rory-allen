@@ -1,6 +1,7 @@
 ---
 title: "Ill Technique - User Guide"
 draft: false
+layout: "simple"
 ---
 
 # Ill Technique User Guide

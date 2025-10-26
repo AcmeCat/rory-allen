@@ -1,6 +1,7 @@
 ---
 title: "Ill Technique - Support"
 draft: false
+layout: "simple"
 ---
 
 # Ill Technique Support

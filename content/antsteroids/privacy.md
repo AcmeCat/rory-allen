@@ -1,6 +1,7 @@
 ---
 title: "Antsteroids - Privacy Policy"
 draft: false
+layout: "simple"
 ---
 
 # Privacy Policy for Antsteroids

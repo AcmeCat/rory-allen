@@ -1,6 +1,7 @@
 ---
 title: "Antsteroids - User Guide"
 draft: false
+layout: "simple"
 ---
 
 # Antsteroids User Guide

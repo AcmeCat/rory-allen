@@ -1,6 +1,7 @@
 ---
 title: "UGotGDM - Support"
 draft: false
+layout: "simple"
 ---
 
 # UGotGDM Support

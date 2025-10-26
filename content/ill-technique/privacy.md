@@ -1,6 +1,7 @@
 ---
 title: "Ill Technique - Privacy Policy"
 draft: false
+layout: "simple"
 ---
 
 # Privacy Policy for Ill Technique

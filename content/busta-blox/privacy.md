@@ -1,6 +1,7 @@
 ---
 title: "Busta Blox - Privacy Policy"
 draft: false
+layout: "simple"
 ---
 
 # Privacy Policy for Busta Blox

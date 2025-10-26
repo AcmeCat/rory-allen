@@ -1,6 +1,7 @@
 ---
 title: "UGotGDM - User Guide"
 draft: false
+layout: "simple"
 ---
 
 # UGotGDM User Guide

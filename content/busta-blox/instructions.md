@@ -1,6 +1,7 @@
 ---
 title: "Busta Blox - User Guide"
 draft: false
+layout: "simple"
 ---
 
 # Busta Blox User Guide

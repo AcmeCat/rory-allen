@@ -1,6 +1,7 @@
 ---
 title: "Busta Blox - Support"
 draft: false
+layout: "simple"
 ---
 
 # Busta Blox Support

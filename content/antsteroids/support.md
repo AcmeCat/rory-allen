@@ -1,6 +1,7 @@
 ---
 title: "Antsteroids - Support"
 draft: false
+layout: "simple"
 ---
 
 # Antsteroids Support

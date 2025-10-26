@@ -1,6 +1,7 @@
 ---
 title: "UGotGDM - Product Details"
 draft: false
+layout: "simple"
 ---
 
 # UGotGDM

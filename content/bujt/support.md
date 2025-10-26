@@ -1,6 +1,7 @@
 ---
 title: "Bujt - Support"
 draft: false
+layout: "simple"
 ---
 
 # Bujt Support

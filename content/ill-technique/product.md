@@ -1,6 +1,7 @@
 ---
 title: "Ill Technique - Product Details"
 draft: false
+layout: "simple"
 ---
 
 # Ill Technique

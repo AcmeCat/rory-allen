@@ -1,6 +1,7 @@
 ---
 title: "Antsteroids - Product Details"
 draft: false
+layout: "simple"
 ---
 
 # Antsteroids!

@@ -1,6 +1,7 @@
 ---
 title: "Bujt - Product Details"
 draft: false
+layout: "simple"
 ---
 
 # Bujt

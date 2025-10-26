@@ -1,6 +1,7 @@
 ---
 title: "Busta Blox - Product Details"
 draft: false
+layout: "simple"
 ---
 
 # Busta Blox

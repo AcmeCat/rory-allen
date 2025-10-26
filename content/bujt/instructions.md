@@ -1,6 +1,7 @@
 ---
 title: "Bujt - User Guide"
 draft: false
+layout: "simple"
 ---
 
 # Bujt User Guide
