@@ -223,6 +223,9 @@ footer {
   border: 1px solid var(--terminal-green);
   padding: 20px;
   transition: all 0.2s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .portfolio-item:hover {
@@ -234,6 +237,7 @@ footer {
 .portfolio-item h3 {
   margin-top: 0;
   margin-bottom: 10px;
+  color: var(--yellow);
 }
 
 .portfolio-item p {
