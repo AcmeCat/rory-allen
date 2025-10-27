@@ -48,6 +48,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Create deployment directory
+        run: |
+          mkdir _site
+          cp *.html _site/
+          cp -r css _site/
+          [ -d js ] && cp -r js _site/ || true
+          [ -d img ] && cp -r img _site/ || true
+          cp -r portfolio _site/
+          cp -r blog _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

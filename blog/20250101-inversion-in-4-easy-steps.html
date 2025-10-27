@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversion: In 4 easy steps - Rory Allen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">about</a></li>
+            <li><a href="../portfolio.html">portfolio</a></li>
+            <li><a href="../blog.html">blog</a></li>
+            <li><a href="../contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="../blog.html" class="back-link">← back to blog</a>
+
+        <h1>Inversion: In 4 easy steps</h1>
+        <p class="date">2025-01-01</p>
+
+        <p>I'm nearly certain that learning this technique is a total game-changer for your ability to produce well architected code. I knew I needed it a long time ago, but I just didn't know what it was. I've been searching for ways to organise my code so that I stop hitting <em>'brick walls of complexity'</em>. I always get to a point where I need to abandon a personal project because managing dependancies is becoming too cumbersome, and I know there has to be a better way.</p>
+
+        <p>I remember the first time I heard the term <em>'Dependancy Injection'</em>. It sounded like some highly complex process that I would do well to avoid in my coding adolescence. It wasn't until much later that I found out I had been doing it for years without knowing. Later still, I read the following quote by James Shore:</p>
+
+        <blockquote><em>'Dependency Injection'</em> is a 25-dollar term for a 5-cent concept.</blockquote>
+
+        <pre><code>class MusicPlayer {
+    func play() {
+        let song = Playlist.shared.nextSong() // Hidden dependency on `Playlist.shared`
+        print("Now playing: \(song)")
+    }
+}
+
+class Playlist {
+    static let shared = Playlist()
+    private var songs = ["Song A", "Song B", "Song C"]
+    private var currentIndex = 0
+
+    func nextSong() -> String {
+        let song = songs[currentIndex]
+        currentIndex = (currentIndex + 1) % songs.count
+        return song
+    }
+}</code></pre>
+
+        <h3>Issues with the Code</h3>
+        <ul>
+            <li><strong>Tight Coupling:</strong> <strong>MusicPlayer</strong> is tightly coupled to the singleton <strong>Playlist.shared</strong>.</li>
+            <li><strong>Hidden Dependencies:</strong> The dependency on <strong>Playlist</strong> is implicit, making it hard to test <strong>MusicPlayer</strong> in isolation.</li>
+            <li><strong>Global State:</strong> <strong>Playlist.shared</strong> introduces mutable global state, which can lead to unexpected bugs.</li>
+        </ul>
+
+        <h3>Step 1: Introduce Dependency Injection</h3>
+        <p>Make the dependency on <strong>Playlist</strong> explicit by injecting it into the <strong>MusicPlayer</strong>:</p>
+
+        <pre><code>class MusicPlayer {
+    private let playlist: Playlist
+
+    init(playlist: Playlist) {
+        self.playlist = playlist
+    }
+
+    func play() {
+        let song = playlist.nextSong()
+        print("Now playing: \(song)")
+    }
+}</code></pre>
+
+        <p>The <strong>Playlist</strong> now needs to be passed to <strong>MusicPlayer</strong> during initialization:</p>
+
+        <pre><code>class Playlist {
+    private var songs = ["Song A", "Song B", "Song C"]
+    private var currentIndex = 0
+
+    func nextSong() -> String {
+        let song = songs[currentIndex]
+        currentIndex = (currentIndex + 1) % songs.count
+        return song
+    }
+}
+
+// Usage
+let playlist = Playlist()
+let musicPlayer = MusicPlayer(playlist: playlist)
+musicPlayer.play()</code></pre>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>MusicPlayer</strong> is no longer coupled to the singleton <strong>Playlist.shared</strong>.</li>
+            <li>Dependencies are explicit and testable.</li>
+        </ul>
+
+        <h3>Step 2: Apply the Interface Segregation Principle</h3>
+        <p>Extract a protocol for <strong>Playlist</strong> to implement so that <strong>MusicPlayer</strong> depends on an abstraction, not a concrete implementation.</p>
+
+        <pre><code>protocol PlaylistProvider {
+    func nextSong() -> String
+}
+
+class Playlist: PlaylistProvider {
+    private var songs = ["Song A", "Song B", "Song C"]
+    private var currentIndex = 0
+
+    func nextSong() -> String {
+        let song = songs[currentIndex]
+        currentIndex = (currentIndex + 1) % songs.count
+        return song
+    }
+}
+
+class MusicPlayer {
+    private let playlist: PlaylistProvider
+
+    init(playlist: PlaylistProvider) {
+        self.playlist = playlist
+    }
+
+    func play() {
+        let song = playlist.nextSong()
+        print("Now playing: \(song)")
+    }
+}
+
+// Usage
+let playlist = Playlist()
+let musicPlayer = MusicPlayer(playlist: playlist)
+musicPlayer.play()</code></pre>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>MusicPlayer</strong> depends only on the <strong>PlaylistProvider</strong> abstraction, making it more flexible.</li>
+            <li>You can now easily substitute <strong>Playlist</strong> with a mock implementation for testing.</li>
+        </ul>
+
+        <h3>Step 3: Use Inversion of Control (IoC)</h3>
+        <p>Use an IoC container or factory to manage object creation, so your <strong>MusicPlayer</strong> doesn't need to know how to create its dependencies. Here's a simplified manual IoC:</p>
+
+        <pre><code>class MusicApp {
+    static func createMusicPlayer() -> MusicPlayer {
+        let playlist = Playlist()
+        return MusicPlayer(playlist: playlist)
+    }
+}
+
+// Usage
+let musicPlayer = MusicApp.createMusicPlayer()
+musicPlayer.play()</code></pre>
+
+        <h3>Step 4: Add Dependency Inversion</h3>
+        <p>In a more complex system, the <strong>MusicPlayer</strong> might need additional services, such as a <strong>SongFetcher</strong> that retrieves songs from a network or database. Let's see how to decouple further:</p>
+
+        <p>1. Create an abstraction for fetching songs:</p>
+        <pre><code>protocol SongFetcher {
+    func fetchNextSong() -> String
+}</code></pre>
+
+        <p>2. Implement a concrete <strong>SongFetcher</strong>:</p>
+        <pre><code>class NetworkSongFetcher: SongFetcher {
+    func fetchNextSong() -> String {
+        // Pretend to fetch from a network
+        return "Song from the cloud"
+    }
+}</code></pre>
+
+        <p>3. Update <strong>MusicPlayer</strong> to depend on the <strong>SongFetcher</strong>:</p>
+        <pre><code>class MusicPlayer {
+    private let songFetcher: SongFetcher
+
+    init(songFetcher: SongFetcher) {
+        self.songFetcher = songFetcher
+    }
+
+    func play() {
+        let song = songFetcher.fetchNextSong()
+        print("Now playing: \(song)")
+    }
+}
+
+// Usage
+let songFetcher = NetworkSongFetcher()
+let musicPlayer = MusicPlayer(songFetcher: songFetcher)
+musicPlayer.play()</code></pre>
+
+        <p><strong>Benefits:</strong></p>
+        <ul>
+            <li><strong>MusicPlayer</strong> doesn't care whether the songs come from a playlist, a network, or any other source. It simply relies on the <strong>SongFetcher</strong> abstraction.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rory Allen. All rights reserved.</p>
+    </footer>
+</body>
+</html>
