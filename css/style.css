@@ -248,11 +248,34 @@ footer {
 /* Blog list */
 .blog-list .card {
   position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid var(--terminal-green);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.blog-list .card:hover {
+  border-color: var(--magenta);
+  background-color: rgba(255, 0, 255, 0.05);
+}
+
+.blog-list .card h3 {
+  color: var(--yellow);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-list .card p {
+  color: var(--terminal-gray);
 }
 
 .blog-list .date {
   color: var(--terminal-gray);
   font-size: 0.9em;
+  display: block;
+  margin-bottom: 5px;
 }
 
 /* Back link */
