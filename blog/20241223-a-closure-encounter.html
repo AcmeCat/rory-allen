@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Closure Encounter - Rory Allen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">about</a></li>
+            <li><a href="../portfolio.html">portfolio</a></li>
+            <li><a href="../blog.html">blog</a></li>
+            <li><a href="../contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <a href="../blog.html" class="back-link">← back to blog</a>
+
+        <h1>A Closure Encounter</h1>
+        <p class="date">2024-12-23</p>
+
+        <p>I recently got this in a conversation I had with chatGPT. I hazard to guess who it should really be attributed to. If you wrote this originally (or summink v similar) please reach out.</p>
+
+        <pre><code>import XCTest
+
+class APITests: XCTestCase {
+
+    func testFetchData() {
+        // Create the expectation
+        let expectation = self.expectation(description: "Fetching data from API")
+
+        // Simulate an asynchronous API call
+        fetchDataFromAPI { success in
+            XCTAssertTrue(success, "API call should succeed")
+            expectation.fulfill() // Fulfill the expectation when done
+        }
+
+        // Wait for the expectation with a timeout
+        wait(for: [expectation], timeout: 5.0)
+    }
+
+    // Mock API function
+    private func fetchDataFromAPI(completion: @escaping (Bool) -> Void) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            completion(true) // Simulating a successful API call
+        }
+    }
+}</code></pre>
+
+        <p>The original prompt was searching for a bit of clarity on how to implement expectations in testing Swift code. What it gave me was a bit of clarity on a few topics that had given me head-scratching moments in the past, namely: expectations, mocks, and escaping closures...</p>
+
+        <p>Here's a rundown...</p>
+
+        <pre><code>let expectation = self.expectation(description: "Fetching data from API")</code></pre>
+
+        <p>Here, we're creating an expectation that will keep our test waiting until something specific happens (or until it times out). It's like telling XCTest, "I've got an async thing to do so don't call it a failure just because it doesn't finish instantly." The description is just for logging purposes, so make it meaningful for debugging.</p>
+
+        <pre><code>fetchDataFromAPI { success in
+    XCTAssertTrue(success, "API call should succeed")
+    expectation.fulfill()
+}</code></pre>
+
+        <p>This is where we simulate our API call. The <strong>fetchDataFromAPI</strong> function is asynchronous, so we use a closure (in this case, a callback function) to handle the result.</p>
+
+        <ul>
+            <li>The <strong>XCTAssertTrue(success, "API call should succeed")</strong> line is your standard test check. It's making sure the result is what we expect; true, in this case.</li>
+            <li>Then we call <strong>expectation.fulfill()</strong>, which signals that the async task has done its thing. Without this, the test will just hang around and eventually fail when the timeout hits.</li>
+        </ul>
+
+        <pre><code>wait(for: [expectation], timeout: 5.0)</code></pre>
+
+        <p>This line is like putting the test on pause, giving the async code some time to do its thing. The timeout is how long we're willing to wait before we give up and call it quits. If the expectation isn't fulfilled in time, the test fails. Five seconds is a reasonable limit for most API tests.</p>
+
+        <pre><code>private func fetchDataFromAPI(completion: @escaping (Bool) -> Void) {
+    DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+        completion(true) // Simulating a successful API call
+    }
+}</code></pre>
+
+        <p>This little helper function is our stand-in for a real API call. It's asynchronous because that's how network requests work in the wild. The <strong>@escaping</strong> keyword tells Swift, "This closure is going to hang around after the function ends, so don't clean it up just yet."</p>
+
+        <p>Inside, we're using <strong>DispatchQueue.global().asyncAfter</strong> to mimic the delay you'd get from an actual network request. After 2 seconds, we call <strong>completion(true)</strong> to simulate a successful response. If you wanted to test failures, you could pass false or even throw in some randomization.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Rory Allen. All rights reserved.</p>
+    </footer>
+</body>
+</html>
