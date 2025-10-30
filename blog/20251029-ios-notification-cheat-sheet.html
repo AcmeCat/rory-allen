@@ -1,835 +1,603 @@
 <!DOCTYPE html>
-     <html lang="en">
-     <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <title>iOS Notification System Cheat Sheet</title>
-         <style>
-             * {
-                 margin: 0;
-                 padding: 0;
-                 box-sizing: border-box;
-             }
-
-             body {
-                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-                 line-height: 1.6;
-                 color: #333;
-                 background: #f5f5f7;
-                 padding: 20px;
-             }
-
-             .container {
-                 max-width: 1200px;
-                 margin: 0 auto;
-                 background: white;
-                 border-radius: 12px;
-                 box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                 overflow: hidden;
-             }
-
-             header {
-                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                 color: white;
-                 padding: 40px;
-                 text-align: center;
-             }
-
-             header h1 {
-                 font-size: 2.5em;
-                 margin-bottom: 10px;
-             }
-
-             header p {
-                 font-size: 1.1em;
-                 opacity: 0.9;
-             }
-
-             .content {
-                 padding: 40px;
-             }
-
-             h2 {
-                 color: #667eea;
-                 margin: 30px 0 15px 0;
-                 padding-bottom: 10px;
-                 border-bottom: 2px solid #667eea;
-             }
-
-             h3 {
-                 color: #764ba2;
-                 margin: 20px 0 10px 0;
-             }
-
-             .card {
-                 background: #f8f9fa;
-                 border-left: 4px solid #667eea;
-                 padding: 20px;
-                 margin: 20px 0;
-                 border-radius: 6px;
-             }
-
-             .warning {
-                 border-left-color: #ff6b6b;
-                 background: #fff5f5;
-             }
-
-             .success {
-                 border-left-color: #51cf66;
-                 background: #f0fff4;
-             }
-
-             .info {
-                 border-left-color: #4dabf7;
-                 background: #f0f8ff;
-             }
-
-             code {
-                 background: #2d2d2d;
-                 color: #f8f8f2;
-                 padding: 2px 6px;
-                 border-radius: 3px;
-                 font-family: 'Courier New', monospace;
-                 font-size: 0.9em;
-             }
-
-             pre {
-                 background: #2d2d2d;
-                 color: #f8f8f2;
-                 padding: 20px;
-                 border-radius: 6px;
-                 overflow-x: auto;
-                 margin: 15px 0;
-             }
-
-             pre code {
-                 background: none;
-                 padding: 0;
-                 font-size: 0.85em;
-                 line-height: 1.5;
-             }
-
-             .comparison {
-                 display: grid;
-                 grid-template-columns: 1fr 1fr;
-                 gap: 20px;
-                 margin: 20px 0;
-             }
-
-             .comparison-item {
-                 padding: 20px;
-                 border-radius: 6px;
-             }
-
-             .comparison-item.bad {
-                 background: #fff5f5;
-                 border: 2px solid #ff6b6b;
-             }
-
-             .comparison-item.good {
-                 background: #f0fff4;
-                 border: 2px solid #51cf66;
-             }
-
-             .comparison-item h4 {
-                 margin-bottom: 10px;
-                 display: flex;
-                 align-items: center;
-                 gap: 10px;
-             }
-
-             .badge {
-                 display: inline-block;
-                 padding: 4px 12px;
-                 border-radius: 12px;
-                 font-size: 0.8em;
-                 font-weight: bold;
-                 text-transform: uppercase;
-             }
-
-             .badge.red {
-                 background: #ff6b6b;
-                 color: white;
-             }
-
-             .badge.green {
-                 background: #51cf66;
-                 color: white;
-             }
-
-             .badge.blue {
-                 background: #4dabf7;
-                 color: white;
-             }
-
-             table {
-                 width: 100%;
-                 border-collapse: collapse;
-                 margin: 20px 0;
-             }
-
-             th, td {
-                 padding: 12px;
-                 text-align: left;
-                 border-bottom: 1px solid #ddd;
-             }
-
-             th {
-                 background: #667eea;
-                 color: white;
-             }
-
-             tr:hover {
-                 background: #f8f9fa;
-             }
-
-             ul {
-                 margin: 15px 0;
-                 padding-left: 30px;
-             }
-
-             li {
-                 margin: 8px 0;
-             }
-
-             .toc {
-                 background: #f8f9fa;
-                 padding: 20px;
-                 border-radius: 6px;
-                 margin: 20px 0;
-             }
-
-             .toc ul {
-                 list-style: none;
-                 padding-left: 0;
-             }
-
-             .toc li {
-                 padding: 5px 0;
-             }
-
-             .toc a {
-                 color: #667eea;
-                 text-decoration: none;
-             }
-
-             .toc a:hover {
-                 text-decoration: underline;
-             }
-
-             @media (max-width: 768px) {
-                 .comparison {
-                     grid-template-columns: 1fr;
-                 }
-
-                 .content {
-                     padding: 20px;
-                 }
-
-                 header {
-                     padding: 20px;
-                 }
-
-                 header h1 {
-                     font-size: 1.8em;
-                 }
-             }
-         </style>
-     </head>
-     <body>
-         <div class="container">
-             <header>
-                 <h1>📱 iOS Notification System</h1>
-                 <p>Complete Guide to Local Notifications with UserNotifications Framework</p>
-             </header>
-
-             <div class="content">
-                 <div class="toc">
-                     <h3>📑 Table of Contents</h3>
-                     <ul>
-                         <li><a href="#basics">1. The Basics</a></li>
-                         <li><a href="#triggers">2. Notification Triggers</a></li>
-                         <li><a href="#background">3. Background Execution (The Truth)</a></li>
-                         <li><a href="#delegate">4. Notification Delegate Methods</a></li>
-                         <li><a href="#strategies">5. Smart Notification Strategies</a></li>
-                         <li><a href="#pitfalls">6. Common Pitfalls</a></li>
-                         <li><a href="#solution">7. The UGotGDM Solution</a></li>
-                     </ul>
-                 </div>
-
-                 <section id="basics">
-                     <h2>1. The Basics</h2>
-
-                     <h3>Request Permission</h3>
-                     <pre><code>import UserNotifications
-
-     // Request authorization (usually in Settings or on first launch)
-     let center = UNUserNotificationCenter.current()
-     let granted = try await center.requestAuthorization(options: [.alert, .badge, .sound])
-
-     if granted {
-         print("✅ Notifications authorized")
-     } else {
-         print("❌ User denied notifications")
-     }</code></pre>
-
-                     <h3>Create a Notification</h3>
-                     <pre><code>// 1. Create the content
-     let content = UNMutableNotificationContent()
-     content.title = "Glucose Reminder"
-     content.body = "Time to check your glucose level"
-     content.sound = .default
-     content.badge = 1
-     content.userInfo = ["type": "reading", "meal": "fasting"]  // For deep linking
-
-     // 2. Create the trigger (when it fires)
-     var dateComponents = DateComponents()
-     dateComponents.hour = 7
-     dateComponents.minute = 0
-     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-     // 3. Create the request
-     let request = UNNotificationRequest(
-         identifier: "fasting-reminder",  // Unique ID
-         content: content,
-         trigger: trigger
-     )
-
-     // 4. Schedule it
-     try await UNUserNotificationCenter.current().add(request)</code></pre>
-
-                     <h3>Cancel Notifications</h3>
-                     <pre><code>// Cancel specific notification
-     UNUserNotificationCenter.current()
-         .removePendingNotificationRequests(withIdentifiers: ["fasting-reminder"])
-
-     // Cancel ALL notifications
-     UNUserNotificationCenter.current()
-         .removeAllPendingNotificationRequests()
-
-     // Check what's scheduled
-     let pending = await UNUserNotificationCenter.current().pendingNotificationRequests()
-     for request in pending {
-         print("ID: \(request.identifier), Trigger: \(String(describing: request.trigger))")
-     }</code></pre>
-                 </section>
-
-                 <section id="triggers">
-                     <h2>2. Notification Triggers</h2>
-
-                     <table>
-                         <thead>
-                             <tr>
-                                 <th>Trigger Type</th>
-                                 <th>Use Case</th>
-                                 <th>Example</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <tr>
-                                 <td><code>UNCalendarNotificationTrigger</code></td>
-                                 <td>Daily reminders at specific time</td>
-                                 <td>7:00 AM every day</td>
-                             </tr>
-                             <tr>
-                                 <td><code>UNTimeIntervalNotificationTrigger</code></td>
-                                 <td>Fire after X seconds</td>
-                                 <td>30 seconds from now</td>
-                             </tr>
-                             <tr>
-                                 <td><code>UNLocationNotificationTrigger</code></td>
-                                 <td>Fire when entering/leaving location</td>
-                                 <td>Arrive at hospital</td>
-                             </tr>
-                         </tbody>
-                     </table>
-
-                     <h3>Calendar Trigger - Repeating vs Non-Repeating</h3>
-
-                     <div class="comparison">
-                         <div class="comparison-item bad">
-                             <h4><span class="badge red">Problem</span> Repeating Daily</h4>
-                             <pre><code>// Repeats forever at 7 AM
-     let trigger = UNCalendarNotificationTrigger(
-         dateMatching: [.hour: 7, .minute: 0],
-         repeats: true
-     )</code></pre>
-                             <p><strong>Issues:</strong></p>
-                             <ul>
-                                 <li>Can't cancel "just today"</li>
-                                 <li>If you cancel, it's gone forever</li>
-                                 <li>If you reschedule, next occurrence might be today</li>
-                             </ul>
-                         </div>
-
-                         <div class="comparison-item good">
-                             <h4><span class="badge green">Solution</span> Date-Specific</h4>
-                             <pre><code>// Fires once on Oct 29, 2025
-     let trigger = UNCalendarNotificationTrigger(
-         dateMatching: [.year: 2025, .month: 10,
-                        .day: 29, .hour: 7, .minute: 0],
-         repeats: false
-     )</code></pre>
-                             <p><strong>Benefits:</strong></p>
-                             <ul>
-                                 <li>✅ Cancel today without affecting tomorrow</li>
-                                 <li>✅ Each day is independent</li>
-                                 <li>✅ Full control over scheduling</li>
-                             </ul>
-                         </div>
-                     </div>
-
-                     <h3>Time Interval Trigger</h3>
-                     <pre><code>// Fire in 60 seconds (minimum is 60 seconds, not repeating)
-     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
-
-     // For testing: Fire in 5 seconds (set minimum to 1 in debug builds)
-     #if DEBUG
-     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-     #endif</code></pre>
-
-                     <div class="card warning">
-                         <strong>⚠️ Important:</strong> The minimum time interval for UNTimeIntervalNotificationTrigger is 60 seconds in production. For testing,
-      iOS is more lenient.
-                     </div>
-                 </section>
-
-                 <section id="background">
-                     <h2>3. Background Execution (The Truth)</h2>
-
-                     <div class="card warning">
-                         <h3>❌ What You CAN'T Do</h3>
-                         <p><strong>"Run code at 10 PM every night to reschedule notifications"</strong></p>
-                         <p>iOS does NOT allow background processes to run at specific times. Period.</p>
-                     </div>
-
-                     <h3>Background Execution Options (None are Perfect)</h3>
-
-                     <table>
-                         <thead>
-                             <tr>
-                                 <th>Method</th>
-                                 <th>Guaranteed Time?</th>
-                                 <th>User Can Disable?</th>
-                                 <th>Reliability</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <tr>
-                                 <td>Background App Refresh</td>
-                                 <td>❌ No - iOS decides when</td>
-                                 <td>✅ Yes (Settings)</td>
-                                 <td>Low</td>
-                             </tr>
-                             <tr>
-                                 <td>BGTaskScheduler</td>
-                                 <td>❌ No - "earliest" only</td>
-                                 <td>✅ Yes (Low Power Mode)</td>
-                                 <td>Medium</td>
-                             </tr>
-                             <tr>
-                                 <td>Silent Push Notifications</td>
-                                 <td>⚠️ When server sends</td>
-                                 <td>✅ Yes (needs network)</td>
-                                 <td>Medium-High</td>
-                             </tr>
-                             <tr>
-                                 <td>Background Modes (location, audio, etc.)</td>
-                                 <td>❌ Not for timers</td>
-                                 <td>N/A</td>
-                                 <td>N/A</td>
-                             </tr>
-                         </tbody>
-                     </table>
-
-                     <h3>Example: Background App Refresh (Unreliable)</h3>
-                     <pre><code>// Request background time (iOS decides when to grant it)
-     import BackgroundTasks
-
-     // 1. Register in AppDelegate
-     BGTaskScheduler.shared.register(
-         forTaskWithIdentifier: "com.ugotgdm.refresh",
-         using: nil
-     ) { task in
-         self.handleAppRefresh(task: task as! BGAppRefreshTask)
-     }
-
-     // 2. Schedule when app goes to background
-     let request = BGAppRefreshTaskRequest(identifier: "com.ugotgdm.refresh")
-     request.earliestBeginDate = Date(timeIntervalSinceNow: 8 * 3600)  // 8 hours
-     try? BGTaskScheduler.shared.submit(request)
-
-     // 3. This might run in 8 hours, or 12 hours, or not at all
-     func handleAppRefresh(task: BGAppRefreshTask) {
-         // Reschedule notifications here
-         // But you can't guarantee this runs at 10 PM!
-     }</code></pre>
-
-                     <div class="card info">
-                         <strong>💡 Key Insight:</strong> The only reliable way to run code is when:
-                         <ul>
-                             <li>User opens your app</li>
-                             <li>User taps a notification (but too late to prevent it)</li>
-                         </ul>
-                         That's it. Everything else is opportunistic and unreliable.
-                     </div>
-                 </section>
-
-                 <section id="delegate">
-                     <h2>4. Notification Delegate Methods</h2>
-
-                     <h3>Set the Delegate</h3>
-                     <pre><code>// In your App struct or AppDelegate
-     import UserNotifications
-
-     @main
-     struct MyApp: App {
-         init() {
-             UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
-         }
-     }
-
-     class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
-         static let shared = NotificationDelegate()
-     }</code></pre>
-
-                     <h3>willPresent - Control Foreground Display</h3>
-                     <pre><code>func userNotificationCenter(
-         _ center: UNUserNotificationCenter,
-         willPresent notification: UNNotification,
-         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
-     ) {
-         // 🔍 This ONLY fires when app is IN FOREGROUND
-
-         // Check if we should show this notification
-         let userInfo = notification.request.content.userInfo
-
-         if shouldSuppressNotification(userInfo: userInfo) {
-             // Don't show it
-             completionHandler([])
-         } else {
-             // Show banner and play sound
-             completionHandler([.banner, .sound])
-         }
-     }</code></pre>
-
-                     <div class="card warning">
-                         <strong>⚠️ CRITICAL:</strong> <code>willPresent</code> only runs when app is in the foreground!
-                         <ul>
-                             <li>App in background → Notification shows directly, this method is NOT called</li>
-                             <li>App terminated → Notification shows directly, this method is NOT called</li>
-                         </ul>
-                         <p>This is why "check Core Data in willPresent" doesn't work for background notifications!</p>
-                     </div>
-
-                     <h3>didReceive - Handle Notification Tap</h3>
-                     <pre><code>func userNotificationCenter(
-         _ center: UNUserNotificationCenter,
-         didReceive response: UNNotificationResponse,
-         withCompletionHandler completionHandler: @escaping () -> Void
-     ) {
-         // User tapped the notification
-         let userInfo = response.notification.request.content.userInfo
-
-         // Handle deep linking
-         if let type = userInfo["type"] as? String,
-            let meal = userInfo["meal"] as? String {
-             // Navigate to appropriate screen
-             DeepLinkCoordinator.shared.handleNotification(type: type, meal: meal)
-         }
-
-         completionHandler()
-     }</code></pre>
-
-                     <h3>State Diagram</h3>
-                     <div class="card info">
-                         <pre>
-     📱 Notification Fires at 7:00 AM
-         │
-         ├─ App is FOREGROUND
-         │   └─> willPresent() called
-         │       └─> Can suppress here ✅
-         │
-         ├─ App is BACKGROUND
-         │   └─> Notification shows
-         │       └─> NO METHOD CALLED ❌
-         │
-         └─ App is TERMINATED
-             └─> Notification shows
-                 └─> NO METHOD CALLED ❌
-
-     User taps notification
-         └─> didReceive() called
-             └─> Handle deep link
-                         </pre>
-                     </div>
-                 </section>
-
-                 <section id="strategies">
-                     <h2>5. Smart Notification Strategies</h2>
-
-                     <h3>❌ Strategy 1: Cancel on Data Entry + Reschedule in onAppear (BROKEN)</h3>
-                     <pre><code>// TodayView
-     func addReading() {
-         saveToDatabase()
-         NotificationManager.shared.cancelGlucoseReminder(for: "fasting")  // Cancel it
-     }
-
-     // TodayView.onAppear()
-     func onAppear() {
-         NotificationManager.shared.scheduleAllNotifications()  // Reschedule everything!
-     }
-
-     // 🔴 PROBLEM:
-     // - User enters data at 7 AM → Cancels fasting reminder ✅
-     // - User switches tabs → onAppear() reschedules it ❌
-     // - 9 AM: Fasting reminder fires even though data exists!</code></pre>
-
-                     <h3>❌ Strategy 2: Suppress in willPresent Only (BROKEN)</h3>
-                     <pre><code>func willPresent(notification) {
-         if dataExistsInCoreData() {
-             completionHandler([])  // Suppress it
-         } else {
-             completionHandler([.banner, .sound])
-         }
-     }
-
-     // 🔴 PROBLEM:
-     // - Only works when app is in FOREGROUND
-     // - User closes app → willPresent() never called
-     // - Notification shows anyway!</code></pre>
-
-                     <h3>✅ Strategy 3: Date-Specific Notifications (WORKS!)</h3>
-                     <pre><code>// Schedule 7 days ahead, each with unique identifier
-     func scheduleNotifications() {
-         let calendar = Calendar.current
-
-         for dayOffset in 0...6 {  // Schedule 7 days
-             guard let date = calendar.date(byAdding: .day, value: dayOffset, to: Date()) else { continue }
-
-             let components = calendar.dateComponents([.year, .month, .day], from: date)
-             var dateComponents = components
-             dateComponents.hour = 7  // 7 AM
-             dateComponents.minute = 0
-
-             let trigger = UNCalendarNotificationTrigger(
-                 dateMatching: dateComponents,
-                 repeats: false  // One-time only!
-             )
-
-             let identifier = "fasting-\(components.year!)-\(components.month!)-\(components.day!)"
-
-             let request = UNNotificationRequest(
-                 identifier: identifier,
-                 content: content,
-                 trigger: trigger
-             )
-
-             UNUserNotificationCenter.current().add(request)
-         }
-     }
-
-     // When user enters data
-     func addReading() {
-         saveToDatabase()
-
-         // Cancel ONLY today's notification
-         let today = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-         let identifier = "fasting-\(today.year!)-\(today.month!)-\(today.day!)"
-
-         UNUserNotificationCenter.current()
-             .removePendingNotificationRequests(withIdentifiers: [identifier])
-
-         // Tomorrow's notification is unaffected ✅
-     }
-
-     // When app opens, refresh the schedule
-     func refreshNotifications() {
-         // Check what's currently scheduled
-         let pending = await UNUserNotificationCenter.current().pendingNotificationRequests()
-
-         // If we have fewer than 3 days scheduled, schedule more
-         if pending.count < 12 {  // 4 reminders × 3 days
-             scheduleNotifications()
-         }
-     }</code></pre>
-
-                     <div class="card success">
-                         <strong>✅ Why This Works:</strong>
-                         <ul>
-                             <li>Each day's notification is independent</li>
-                             <li>Canceling today doesn't affect tomorrow</li>
-                             <li>Works even when app is in background/terminated</li>
-                             <li>No delegate methods needed for suppression</li>
-                         </ul>
-                     </div>
-
-                     <div class="card warning">
-                         <strong>⚠️ Trade-off:</strong> If user doesn't open app for 7+ days, notifications stop (ran out of scheduled days). This is acceptable
-     for a health tracking app where daily use is expected.
-                     </div>
-                 </section>
-
-                 <section id="pitfalls">
-                     <h2>6. Common Pitfalls</h2>
-
-                     <h3>Pitfall #1: The "Next Occurrence" Trap</h3>
-                     <pre><code>// User enters lunch data at 7 AM
-     // Lunch notification is scheduled for 12 PM
-
-     // If you cancel and reschedule with repeating trigger:
-     let trigger = UNCalendarNotificationTrigger(
-         dateMatching: [.hour: 12, .minute: 0],
-         repeats: true
-     )
-
-     // iOS schedules for next occurrence of 12 PM
-     // Current time: 7 AM
-     // Next 12 PM: TODAY at 12 PM (not tomorrow!)
-     // Notification still fires at noon even though data exists! ❌</code></pre>
-
-                     <h3>Pitfall #2: Notification Limit (64)</h3>
-                     <div class="card warning">
-                         <strong>iOS limits you to 64 pending notifications total.</strong>
-                         <pre><code>// If you schedule 30 days × 4 reminders = 120 notifications
-     // iOS will only keep the first 64
-
-     // Solution: Schedule 7-14 days ahead
-     // 7 days × 4 reminders = 28 notifications (well under limit)</code></pre>
-                     </div>
-
-                     <h3>Pitfall #3: Timezone Changes</h3>
-                     <pre><code>// User schedules notification in NYC (EST)
-     // Travels to LA (PST)
-     // Notification uses calendar components, so it fires at local time ✅
-
-     // BUT: If you use Date instead of DateComponents, it fires at absolute time
-     let wrongTrigger = UNTimeIntervalNotificationTrigger(
-         timeInterval: targetDate.timeIntervalSinceNow,
-         repeats: false
-     )
-     // This won't adjust to timezone! ❌
-
-     // Always use UNCalendarNotificationTrigger for daily reminders ✅</code></pre>
-
-                     <h3>Pitfall #4: Testing in Simulator</h3>
-                     <div class="card info">
-                         <p><strong>💡 Simulator Quirks:</strong></p>
-                         <ul>
-                             <li>Notifications work, but banners might not show</li>
-                             <li>Check Notification Center (swipe down) to see them</li>
-                             <li>Background modes behave differently</li>
-                             <li>Always test on real device for final verification</li>
-                         </ul>
-                     </div>
-                 </section>
-
-                 <section id="solution">
-                     <h2>7. The UGotGDM Solution</h2>
-
-                     <h3>Final Architecture</h3>
-
-                     <div class="card success">
-                         <h4>✅ Date-Specific, Non-Repeating Notifications</h4>
-
-                         <p><strong>Schedule:</strong></p>
-                         <ul>
-                             <li>7 days ahead for each reminder type</li>
-                             <li>Identifier: <code>"{type}-{year}-{month}-{day}"</code></li>
-                             <li>Example: <code>"fasting-2025-10-29"</code></li>
-                         </ul>
-
-                         <p><strong>On Data Entry:</strong></p>
-                         <ul>
-                             <li>Cancel ONLY today's specific notification</li>
-                             <li>Don't reschedule (tomorrow already scheduled)</li>
-                         </ul>
-
-                         <p><strong>On App Launch:</strong></p>
-                         <ul>
-                             <li>Check pending notification count</li>
-                             <li>If < 12 (3 days), schedule more</li>
-                             <li>Keeps queue full</li>
-                         </ul>
-                     </div>
-
-                     <h3>Implementation Checklist</h3>
-                     <pre><code>✅ NotificationManager changes:
-        - scheduleGlucoseReminders(daysAhead: Int = 7)
-        - scheduleForSpecificDate(date: Date, type: String, meal: String)
-        - cancelNotificationForToday(type: String, meal: String)
-        - refreshNotifications() - called on app launch
-
-     ✅ TodayView changes:
-        - Call cancelNotificationForToday() after saving data
-        - Remove all other notification scheduling logic
-
-     ✅ UGotGDMApp changes:
-        - Call refreshNotifications() in init or onAppear
-
-     ✅ Remove:
-        - shouldSuppressNotification() - no longer needed
-        - willPresent suppression logic - no longer needed
-        - Cancel/reschedule in view lifecycle</code></pre>
-
-                     <h3>Edge Cases Handled</h3>
-                     <table>
-                         <thead>
-                             <tr>
-                                 <th>Scenario</th>
-                                 <th>Behavior</th>
-                                 <th>Status</th>
-                             </tr>
-                         </thead>
-                         <tbody>
-                             <tr>
-                                 <td>Enter data before notification time</td>
-                                 <td>Notification cancelled, won't fire</td>
-                                 <td>✅</td>
-                             </tr>
-                             <tr>
-                                 <td>Enter all day's data in morning</td>
-                                 <td>All today's notifications cancelled</td>
-                                 <td>✅</td>
-                             </tr>
-                             <tr>
-                                 <td>App in background</td>
-                                 <td>Cancelled notifications don't fire</td>
-                                 <td>✅</td>
-                             </tr>
-                             <tr>
-                                 <td>Delete data after entry</td>
-                                 <td>Notification already cancelled (won't re-fire today)</td>
-                                 <td>⚠️ Expected</td>
-                             </tr>
-                             <tr>
-                                 <td>Don't open app for 7+ days</td>
-                                 <td>Notifications stop (ran out of scheduled days)</td>
-                                 <td>⚠️ Acceptable</td>
-                             </tr>
-                             <tr>
-                                 <td>Timezone change</td>
-                                 <td>Fires at local time (uses DateComponents)</td>
-                                 <td>✅</td>
-                             </tr>
-                         </tbody>
-                     </table>
-                 </section>
-
-                 <div class="card info" style="margin-top: 40px;">
-                     <h3>📚 Additional Resources</h3>
-                     <ul>
-                         <li><a href="https://developer.apple.com/documentation/usernotifications" target="_blank">Apple UserNotifications Framework</a></li>
-                         <li><a href="https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app" 
-     target="_blank">Scheduling Local Notifications</a></li>
-                         <li><a href="https://developer.apple.com/documentation/backgroundtasks" target="_blank">Background Tasks Framework</a></li>
-                     </ul>
-                 </div>
-
-                 <div style="text-align: center; margin-top: 40px; padding: 20px; color: #666; border-top: 1px solid #ddd;">
-                     <p>Created for UGotGDM iOS App • Last Updated: October 2025</p>
-                 </div>
-             </div>
-         </div>
-     </body>
-     </html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS Notification System Cheat Sheet - Rory Allen</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">about</a></li>
+            <li><a href="../portfolio.html">portfolio</a></li>
+            <li><a href="../blog.html" class="active">blog</a></li>
+            <li><a href="../contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <a href="../blog.html" class="back-link">← Back to blog</a>
+
+    <h1>iOS Notification System Cheat Sheet</h1>
+    <p style="color: var(--terminal-gray); margin-bottom: 30px;">Complete Guide to Local Notifications with UserNotifications Framework</p>
+
+    <div class="card">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#basics">1. The Basics</a></li>
+            <li><a href="#triggers">2. Notification Triggers</a></li>
+            <li><a href="#background">3. Background Execution (The Truth)</a></li>
+            <li><a href="#delegate">4. Notification Delegate Methods</a></li>
+            <li><a href="#strategies">5. Smart Notification Strategies</a></li>
+            <li><a href="#pitfalls">6. Common Pitfalls</a></li>
+            <li><a href="#solution">7. The UGotGDM Solution</a></li>
+        </ul>
+    </div>
+
+    <section id="basics">
+        <h2>1. The Basics</h2>
+
+        <h3>Request Permission</h3>
+        <pre><code>import UserNotifications
+
+// Request authorization (usually in Settings or on first launch)
+let center = UNUserNotificationCenter.current()
+let granted = try await center.requestAuthorization(options: [.alert, .badge, .sound])
+
+if granted {
+    print("✅ Notifications authorized")
+} else {
+    print("❌ User denied notifications")
+}</code></pre>
+
+        <h3>Create a Notification</h3>
+        <pre><code>// 1. Create the content
+let content = UNMutableNotificationContent()
+content.title = "Glucose Reminder"
+content.body = "Time to check your glucose level"
+content.sound = .default
+content.badge = 1
+content.userInfo = ["type": "reading", "meal": "fasting"]  // For deep linking
+
+// 2. Create the trigger (when it fires)
+var dateComponents = DateComponents()
+dateComponents.hour = 7
+dateComponents.minute = 0
+let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+// 3. Create the request
+let request = UNNotificationRequest(
+    identifier: "fasting-reminder",  // Unique ID
+    content: content,
+    trigger: trigger
+)
+
+// 4. Schedule it
+try await UNUserNotificationCenter.current().add(request)</code></pre>
+
+        <h3>Cancel Notifications</h3>
+        <pre><code>// Cancel specific notification
+UNUserNotificationCenter.current()
+    .removePendingNotificationRequests(withIdentifiers: ["fasting-reminder"])
+
+// Cancel ALL notifications
+UNUserNotificationCenter.current()
+    .removeAllPendingNotificationRequests()
+
+// Check what's scheduled
+let pending = await UNUserNotificationCenter.current().pendingNotificationRequests()
+for request in pending {
+    print("ID: \(request.identifier), Trigger: \(String(describing: request.trigger))")
+}</code></pre>
+    </section>
+
+    <section id="triggers">
+        <h2>2. Notification Triggers</h2>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Trigger Type</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Use Case</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);"><code>UNCalendarNotificationTrigger</code></td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Daily reminders at specific time</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">7:00 AM every day</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);"><code>UNTimeIntervalNotificationTrigger</code></td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Fire after X seconds</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">30 seconds from now</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);"><code>UNLocationNotificationTrigger</code></td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Fire when entering/leaving location</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Arrive at hospital</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Calendar Trigger - Repeating vs Non-Repeating</h3>
+
+        <div class="card">
+            <p style="color: var(--magenta);"><strong>❌ Problem: Repeating Daily</strong></p>
+            <pre><code>// Repeats forever at 7 AM
+let trigger = UNCalendarNotificationTrigger(
+    dateMatching: [.hour: 7, .minute: 0],
+    repeats: true
+)</code></pre>
+            <p><strong>Issues:</strong></p>
+            <ul>
+                <li>Can't cancel "just today"</li>
+                <li>If you cancel, it's gone forever</li>
+                <li>If you reschedule, next occurrence might be today</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p style="color: var(--cyan);"><strong>✅ Solution: Date-Specific</strong></p>
+            <pre><code>// Fires once on Oct 29, 2025
+let trigger = UNCalendarNotificationTrigger(
+    dateMatching: [.year: 2025, .month: 10,
+                   .day: 29, .hour: 7, .minute: 0],
+    repeats: false
+)</code></pre>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>✅ Cancel today without affecting tomorrow</li>
+                <li>✅ Each day is independent</li>
+                <li>✅ Full control over scheduling</li>
+            </ul>
+        </div>
+
+        <h3>Time Interval Trigger</h3>
+        <pre><code>// Fire in 60 seconds (minimum is 60 seconds, not repeating)
+let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: false)
+
+// For testing: Fire in 5 seconds (set minimum to 1 in debug builds)
+#if DEBUG
+let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+#endif</code></pre>
+
+        <div class="card">
+            <p style="color: var(--magenta);"><strong>⚠️ Important:</strong> The minimum time interval for UNTimeIntervalNotificationTrigger is 60 seconds in production. For testing, iOS is more lenient.</p>
+        </div>
+    </section>
+
+    <section id="background">
+        <h2>3. Background Execution (The Truth)</h2>
+
+        <div class="card">
+            <h3 style="color: var(--magenta);">❌ What You CAN'T Do</h3>
+            <p><strong>"Run code at 10 PM every night to reschedule notifications"</strong></p>
+            <p>iOS does NOT allow background processes to run at specific times. Period.</p>
+        </div>
+
+        <h3>Background Execution Options (None are Perfect)</h3>
+
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Method</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Guaranteed Time?</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">User Can Disable?</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Reliability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Background App Refresh</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">❌ No - iOS decides when</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅ Yes (Settings)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Low</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">BGTaskScheduler</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">❌ No - "earliest" only</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅ Yes (Low Power Mode)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Medium</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Silent Push Notifications</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">⚠️ When server sends</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅ Yes (needs network)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Medium-High</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Background Modes (location, audio, etc.)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">❌ Not for timers</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">N/A</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">N/A</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Example: Background App Refresh (Unreliable)</h3>
+        <pre><code>// Request background time (iOS decides when to grant it)
+import BackgroundTasks
+
+// 1. Register in AppDelegate
+BGTaskScheduler.shared.register(
+    forTaskWithIdentifier: "com.ugotgdm.refresh",
+    using: nil
+) { task in
+    self.handleAppRefresh(task: task as! BGAppRefreshTask)
+}
+
+// 2. Schedule when app goes to background
+let request = BGAppRefreshTaskRequest(identifier: "com.ugotgdm.refresh")
+request.earliestBeginDate = Date(timeIntervalSinceNow: 8 * 3600)  // 8 hours
+try? BGTaskScheduler.shared.submit(request)
+
+// 3. This might run in 8 hours, or 12 hours, or not at all
+func handleAppRefresh(task: BGAppRefreshTask) {
+    // Reschedule notifications here
+    // But you can't guarantee this runs at 10 PM!
+}</code></pre>
+
+        <div class="card">
+            <p style="color: var(--cyan);"><strong>💡 Key Insight:</strong> The only reliable way to run code is when:</p>
+            <ul>
+                <li>User opens your app</li>
+                <li>User taps a notification (but too late to prevent it)</li>
+            </ul>
+            <p>That's it. Everything else is opportunistic and unreliable.</p>
+        </div>
+    </section>
+
+    <section id="delegate">
+        <h2>4. Notification Delegate Methods</h2>
+
+        <h3>Set the Delegate</h3>
+        <pre><code>// In your App struct or AppDelegate
+import UserNotifications
+
+@main
+struct MyApp: App {
+    init() {
+        UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
+    }
+}
+
+class NotificationDelegate: NSObject, UNUserNotificationCenterDelegate {
+    static let shared = NotificationDelegate()
+}</code></pre>
+
+        <h3>willPresent - Control Foreground Display</h3>
+        <pre><code>func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    willPresent notification: UNNotification,
+    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+) {
+    // 🔍 This ONLY fires when app is IN FOREGROUND
+
+    // Check if we should show this notification
+    let userInfo = notification.request.content.userInfo
+
+    if shouldSuppressNotification(userInfo: userInfo) {
+        // Don't show it
+        completionHandler([])
+    } else {
+        // Show banner and play sound
+        completionHandler([.banner, .sound])
+    }
+}</code></pre>
+
+        <div class="card">
+            <p style="color: var(--magenta);"><strong>⚠️ CRITICAL:</strong> <code>willPresent</code> only runs when app is in the foreground!</p>
+            <ul>
+                <li>App in background → Notification shows directly, this method is NOT called</li>
+                <li>App terminated → Notification shows directly, this method is NOT called</li>
+            </ul>
+            <p>This is why "check Core Data in willPresent" doesn't work for background notifications!</p>
+        </div>
+
+        <h3>didReceive - Handle Notification Tap</h3>
+        <pre><code>func userNotificationCenter(
+    _ center: UNUserNotificationCenter,
+    didReceive response: UNNotificationResponse,
+    withCompletionHandler completionHandler: @escaping () -> Void
+) {
+    // User tapped the notification
+    let userInfo = response.notification.request.content.userInfo
+
+    // Handle deep linking
+    if let type = userInfo["type"] as? String,
+       let meal = userInfo["meal"] as? String {
+        // Navigate to appropriate screen
+        DeepLinkCoordinator.shared.handleNotification(type: type, meal: meal)
+    }
+
+    completionHandler()
+}</code></pre>
+
+        <h3>State Diagram</h3>
+        <div class="card">
+            <pre>📱 Notification Fires at 7:00 AM
+    │
+    ├─ App is FOREGROUND
+    │   └─> willPresent() called
+    │       └─> Can suppress here ✅
+    │
+    ├─ App is BACKGROUND
+    │   └─> Notification shows
+    │       └─> NO METHOD CALLED ❌
+    │
+    └─ App is TERMINATED
+        └─> Notification shows
+            └─> NO METHOD CALLED ❌
+
+User taps notification
+    └─> didReceive() called
+        └─> Handle deep link</pre>
+        </div>
+    </section>
+
+    <section id="strategies">
+        <h2>5. Smart Notification Strategies</h2>
+
+        <h3 style="color: var(--magenta);">❌ Strategy 1: Cancel on Data Entry + Reschedule in onAppear (BROKEN)</h3>
+        <pre><code>// TodayView
+func addReading() {
+    saveToDatabase()
+    NotificationManager.shared.cancelGlucoseReminder(for: "fasting")  // Cancel it
+}
+
+// TodayView.onAppear()
+func onAppear() {
+    NotificationManager.shared.scheduleAllNotifications()  // Reschedule everything!
+}
+
+// 🔴 PROBLEM:
+// - User enters data at 7 AM → Cancels fasting reminder ✅
+// - User switches tabs → onAppear() reschedules it ❌
+// - 9 AM: Fasting reminder fires even though data exists!</code></pre>
+
+        <h3 style="color: var(--magenta);">❌ Strategy 2: Suppress in willPresent Only (BROKEN)</h3>
+        <pre><code>func willPresent(notification) {
+    if dataExistsInCoreData() {
+        completionHandler([])  // Suppress it
+    } else {
+        completionHandler([.banner, .sound])
+    }
+}
+
+// 🔴 PROBLEM:
+// - Only works when app is in FOREGROUND
+// - User closes app → willPresent() never called
+// - Notification shows anyway!</code></pre>
+
+        <h3 style="color: var(--cyan);">✅ Strategy 3: Date-Specific Notifications (WORKS!)</h3>
+        <pre><code>// Schedule 7 days ahead, each with unique identifier
+func scheduleNotifications() {
+    let calendar = Calendar.current
+
+    for dayOffset in 0...6 {  // Schedule 7 days
+        guard let date = calendar.date(byAdding: .day, value: dayOffset, to: Date()) else { continue }
+
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        var dateComponents = components
+        dateComponents.hour = 7  // 7 AM
+        dateComponents.minute = 0
+
+        let trigger = UNCalendarNotificationTrigger(
+            dateMatching: dateComponents,
+            repeats: false  // One-time only!
+        )
+
+        let identifier = "fasting-\(components.year!)-\(components.month!)-\(components.day!)"
+
+        let request = UNNotificationRequest(
+            identifier: identifier,
+            content: content,
+            trigger: trigger
+        )
+
+        UNUserNotificationCenter.current().add(request)
+    }
+}
+
+// When user enters data
+func addReading() {
+    saveToDatabase()
+
+    // Cancel ONLY today's notification
+    let today = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+    let identifier = "fasting-\(today.year!)-\(today.month!)-\(today.day!)"
+
+    UNUserNotificationCenter.current()
+        .removePendingNotificationRequests(withIdentifiers: [identifier])
+
+    // Tomorrow's notification is unaffected ✅
+}
+
+// When app opens, refresh the schedule
+func refreshNotifications() {
+    // Check what's currently scheduled
+    let pending = await UNUserNotificationCenter.current().pendingNotificationRequests()
+
+    // If we have fewer than 3 days scheduled, schedule more
+    if pending.count < 12 {  // 4 reminders × 3 days
+        scheduleNotifications()
+    }
+}</code></pre>
+
+        <div class="card">
+            <p style="color: var(--cyan);"><strong>✅ Why This Works:</strong></p>
+            <ul>
+                <li>Each day's notification is independent</li>
+                <li>Canceling today doesn't affect tomorrow</li>
+                <li>Works even when app is in background/terminated</li>
+                <li>No delegate methods needed for suppression</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <p style="color: var(--magenta);"><strong>⚠️ Trade-off:</strong> If user doesn't open app for 7+ days, notifications stop (ran out of scheduled days). This is acceptable for a health tracking app where daily use is expected.</p>
+        </div>
+    </section>
+
+    <section id="pitfalls">
+        <h2>6. Common Pitfalls</h2>
+
+        <h3>Pitfall #1: The "Next Occurrence" Trap</h3>
+        <pre><code>// User enters lunch data at 7 AM
+// Lunch notification is scheduled for 12 PM
+
+// If you cancel and reschedule with repeating trigger:
+let trigger = UNCalendarNotificationTrigger(
+    dateMatching: [.hour: 12, .minute: 0],
+    repeats: true
+)
+
+// iOS schedules for next occurrence of 12 PM
+// Current time: 7 AM
+// Next 12 PM: TODAY at 12 PM (not tomorrow!)
+// Notification still fires at noon even though data exists! ❌</code></pre>
+
+        <h3>Pitfall #2: Notification Limit (64)</h3>
+        <div class="card">
+            <p style="color: var(--magenta);"><strong>iOS limits you to 64 pending notifications total.</strong></p>
+            <pre><code>// If you schedule 30 days × 4 reminders = 120 notifications
+// iOS will only keep the first 64
+
+// Solution: Schedule 7-14 days ahead
+// 7 days × 4 reminders = 28 notifications (well under limit)</code></pre>
+        </div>
+
+        <h3>Pitfall #3: Timezone Changes</h3>
+        <pre><code>// User schedules notification in NYC (EST)
+// Travels to LA (PST)
+// Notification uses calendar components, so it fires at local time ✅
+
+// BUT: If you use Date instead of DateComponents, it fires at absolute time
+let wrongTrigger = UNTimeIntervalNotificationTrigger(
+    timeInterval: targetDate.timeIntervalSinceNow,
+    repeats: false
+)
+// This won't adjust to timezone! ❌
+
+// Always use UNCalendarNotificationTrigger for daily reminders ✅</code></pre>
+
+        <h3>Pitfall #4: Testing in Simulator</h3>
+        <div class="card">
+            <p style="color: var(--cyan);"><strong>💡 Simulator Quirks:</strong></p>
+            <ul>
+                <li>Notifications work, but banners might not show</li>
+                <li>Check Notification Center (swipe down) to see them</li>
+                <li>Background modes behave differently</li>
+                <li>Always test on real device for final verification</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="solution">
+        <h2>7. The UGotGDM Solution</h2>
+
+        <h3>Final Architecture</h3>
+
+        <div class="card">
+            <h3 style="color: var(--cyan);">✅ Date-Specific, Non-Repeating Notifications</h3>
+
+            <p><strong>Schedule:</strong></p>
+            <ul>
+                <li>7 days ahead for each reminder type</li>
+                <li>Identifier: <code>"{type}-{year}-{month}-{day}"</code></li>
+                <li>Example: <code>"fasting-2025-10-29"</code></li>
+            </ul>
+
+            <p><strong>On Data Entry:</strong></p>
+            <ul>
+                <li>Cancel ONLY today's specific notification</li>
+                <li>Don't reschedule (tomorrow already scheduled)</li>
+            </ul>
+
+            <p><strong>On App Launch:</strong></p>
+            <ul>
+                <li>Check pending notification count</li>
+                <li>If < 12 (3 days), schedule more</li>
+                <li>Keeps queue full</li>
+            </ul>
+        </div>
+
+        <h3>Implementation Checklist</h3>
+        <pre><code>✅ NotificationManager changes:
+   - scheduleGlucoseReminders(daysAhead: Int = 7)
+   - scheduleForSpecificDate(date: Date, type: String, meal: String)
+   - cancelNotificationForToday(type: String, meal: String)
+   - refreshNotifications() - called on app launch
+
+✅ TodayView changes:
+   - Call cancelNotificationForToday() after saving data
+   - Remove all other notification scheduling logic
+
+✅ UGotGDMApp changes:
+   - Call refreshNotifications() in init or onAppear
+
+✅ Remove:
+   - shouldSuppressNotification() - no longer needed
+   - willPresent suppression logic - no longer needed
+   - Cancel/reschedule in view lifecycle</code></pre>
+
+        <h3>Edge Cases Handled</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <thead>
+                <tr>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Scenario</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Behavior</th>
+                    <th style="padding: 12px; text-align: left; border: 1px solid var(--terminal-green); color: var(--cyan);">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Enter data before notification time</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Notification cancelled, won't fire</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Enter all day's data in morning</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">All today's notifications cancelled</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">App in background</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Cancelled notifications don't fire</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Delete data after entry</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Notification already cancelled (won't re-fire today)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">⚠️ Expected</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Don't open app for 7+ days</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Notifications stop (ran out of scheduled days)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">⚠️ Acceptable</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Timezone change</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">Fires at local time (uses DateComponents)</td>
+                    <td style="padding: 12px; border: 1px solid var(--terminal-green);">✅</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="card" style="margin-top: 40px;">
+        <h3>Additional Resources</h3>
+        <ul>
+            <li><a href="https://developer.apple.com/documentation/usernotifications" target="_blank">Apple UserNotifications Framework</a></li>
+            <li><a href="https://developer.apple.com/documentation/usernotifications/scheduling_a_notification_locally_from_your_app" target="_blank">Scheduling Local Notifications</a></li>
+            <li><a href="https://developer.apple.com/documentation/backgroundtasks" target="_blank">Background Tasks Framework</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>Created for UGotGDM iOS App • Last Updated: October 2025</p>
+    </footer>
+</body>
+</html>

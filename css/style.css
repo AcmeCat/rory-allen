@@ -7,6 +7,7 @@
   --magenta: #ff00ff;
   --yellow: #ffff00;
   --terminal-gray: #808080;
+  --neon-lilac: #bb86fc;
 }
 
 * {
@@ -153,15 +154,16 @@ li {
 }
 
 code {
-  background-color: rgba(0, 255, 0, 0.1);
+  background-color: rgba(187, 134, 252, 0.2);
+  color: var(--neon-lilac);
   padding: 2px 6px;
   border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
 }
 
 pre {
-  background-color: rgba(0, 255, 0, 0.05);
-  border: 1px solid var(--terminal-green);
+  background-color: rgba(187, 134, 252, 0.1);
+  border: 1px solid var(--neon-lilac);
   padding: 15px;
   overflow-x: auto;
   margin-bottom: 20px;
@@ -170,6 +172,7 @@ pre {
 pre code {
   background: none;
   padding: 0;
+  color: var(--neon-lilac);
 }
 
 img {
