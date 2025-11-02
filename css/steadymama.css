@@ -1,0 +1,108 @@
+/* SteadyMama Custom Colors */
+
+:root {
+  /* Main colors */
+  --steadymama-teal: #00d9c0;
+  --steadymama-teal-light: #33e5d0;
+  --steadymama-teal-dark: #00a893;
+  --steadymama-coral: #ff6b6b;
+  --steadymama-coral-light: #ff8787;
+  --steadymama-coral-dark: #ff4757;
+  --steadymama-charcoal: #2d3436;
+  --steadymama-charcoal-light: #636e72;
+  --steadymama-charcoal-dark: #1e272e;
+}
+
+/* Override terminal colors for SteadyMama pages */
+body.steadymama {
+  background-color: #000000;
+  color: #dfe6e9; /* Light gray for body text instead of green */
+}
+
+body.steadymama h1 {
+  color: var(--steadymama-teal);
+  border-bottom-color: var(--steadymama-teal);
+}
+
+body.steadymama h2 {
+  color: var(--steadymama-coral);
+}
+
+body.steadymama h3 {
+  color: var(--steadymama-teal-light);
+}
+
+body.steadymama h4 {
+  color: var(--steadymama-coral-light);
+}
+
+body.steadymama p {
+  color: #b2bec3; /* Charcoal-tinted gray for paragraphs */
+}
+
+body.steadymama li {
+  color: #b2bec3;
+}
+
+body.steadymama a {
+  color: var(--steadymama-teal);
+  border-bottom-color: var(--steadymama-teal);
+}
+
+body.steadymama a:hover {
+  color: var(--steadymama-coral);
+  border-bottom-color: var(--steadymama-coral);
+}
+
+body.steadymama a:visited {
+  color: var(--steadymama-charcoal-light);
+}
+
+body.steadymama nav a {
+  color: var(--steadymama-teal);
+}
+
+body.steadymama nav a:hover {
+  background-color: var(--steadymama-teal);
+  color: #000000;
+}
+
+body.steadymama .back-link {
+  color: var(--steadymama-coral);
+}
+
+body.steadymama .back-link:hover {
+  color: var(--steadymama-teal);
+}
+
+body.steadymama code {
+  background-color: rgba(0, 217, 192, 0.1);
+  color: var(--steadymama-teal-light);
+}
+
+body.steadymama pre {
+  background-color: rgba(45, 52, 54, 0.3);
+  border-color: var(--steadymama-charcoal);
+  color: var(--steadymama-teal-light);
+}
+
+body.steadymama hr {
+  border-color: var(--steadymama-charcoal) !important;
+}
+
+body.steadymama strong {
+  color: var(--steadymama-coral-light);
+}
+
+body.steadymama footer {
+  color: var(--steadymama-charcoal-light);
+  border-top-color: var(--steadymama-charcoal);
+}
+
+body.steadymama ol {
+  color: #b2bec3;
+}
+
+body.steadymama ul {
+  color: #b2bec3;
+}

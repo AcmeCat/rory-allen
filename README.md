@@ -41,7 +41,7 @@ The workflow simply uploads the root directory (excluding `hugo-archive/`) to Gi
 ├── css/
 │   └── style.css      # Terminal-style CSS
 ├── portfolio/         # Individual project pages
-│   ├── ugotgdm.html
+│   ├── steadymama.html
 │   ├── antsteroids.html
 │   ├── ill-technique.html
 │   ├── busta-blox.html

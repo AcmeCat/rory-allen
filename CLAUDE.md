@@ -33,9 +33,9 @@ Then visit: http://localhost:8000/index.html
 ├── contact.html       # Contact information
 ├── css/
 │   ├── style.css      # Main terminal-style CSS
-│   └── ugotgdm.css    # Project-specific styles
+│   └── steadymama.css    # SteadyMama-specific styles
 ├── portfolio/         # Individual project detail pages
-│   ├── ugotgdm.html
+│   ├── steadymama.html
 │   ├── antsteroids.html
 │   ├── ill-technique.html
 │   ├── busta-blox.html

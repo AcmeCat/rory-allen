@@ -30,7 +30,7 @@
             <li><a href="#delegate">4. Notification Delegate Methods</a></li>
             <li><a href="#strategies">5. Smart Notification Strategies</a></li>
             <li><a href="#pitfalls">6. Common Pitfalls</a></li>
-            <li><a href="#solution">7. The UGotGDM Solution</a></li>
+            <li><a href="#solution">7. The SteadyMama Solution</a></li>
         </ul>
     </div>
 
@@ -222,14 +222,14 @@ import BackgroundTasks
 
 // 1. Register in AppDelegate
 BGTaskScheduler.shared.register(
-    forTaskWithIdentifier: "com.ugotgdm.refresh",
+    forTaskWithIdentifier: "com.steadymama.refresh",
     using: nil
 ) { task in
     self.handleAppRefresh(task: task as! BGAppRefreshTask)
 }
 
 // 2. Schedule when app goes to background
-let request = BGAppRefreshTaskRequest(identifier: "com.ugotgdm.refresh")
+let request = BGAppRefreshTaskRequest(identifier: "com.steadymama.refresh")
 request.earliestBeginDate = Date(timeIntervalSinceNow: 8 * 3600)  // 8 hours
 try? BGTaskScheduler.shared.submit(request)
 
@@ -496,7 +496,7 @@ let wrongTrigger = UNTimeIntervalNotificationTrigger(
     </section>
 
     <section id="solution">
-        <h2>7. The UGotGDM Solution</h2>
+        <h2>7. The SteadyMama Solution</h2>
 
         <h3>Final Architecture</h3>
 
@@ -535,7 +535,7 @@ let wrongTrigger = UNTimeIntervalNotificationTrigger(
    - Call cancelNotificationForToday() after saving data
    - Remove all other notification scheduling logic
 
-✅ UGotGDMApp changes:
+✅ SteadyMamaApp changes:
    - Call refreshNotifications() in init or onAppear
 
 ✅ Remove:
@@ -597,7 +597,7 @@ let wrongTrigger = UNTimeIntervalNotificationTrigger(
     </div>
 
     <footer>
-        <p>Created for UGotGDM iOS App • Last Updated: October 2025</p>
+        <p>Created for SteadyMama iOS App • Last Updated: October 2025</p>
     </footer>
 </body>
 </html>
